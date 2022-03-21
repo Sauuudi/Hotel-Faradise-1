@@ -13,6 +13,8 @@ public class PistolaClavos : MonoBehaviour
 
     public List<GameObject> nailedList = new List<GameObject>();
 
+    public Kate1 kate;
+
     
     // Start is called before the first frame update
     void Start()
@@ -27,8 +29,6 @@ public class PistolaClavos : MonoBehaviour
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
-
-         
 
         if (Input.GetButtonDown("Fire1"))
 		{
@@ -68,9 +68,13 @@ public class PistolaClavos : MonoBehaviour
     public void borrarOldestNailed()
     {        
            if(nailedList[0] != null)
-            {
+            {                
                 Destroy(nailedList[0]);
+                
             }
+            
+            kate.DecreaseSelected(nailedList[0]);
+            
             nailedList.RemoveAt(0);
     }
 }

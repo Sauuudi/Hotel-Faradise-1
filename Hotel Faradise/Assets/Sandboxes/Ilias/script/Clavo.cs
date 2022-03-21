@@ -38,9 +38,9 @@ public class Clavo : MonoBehaviour
             pistola.saveNailed(clone);
             bool delete = pistola.nailAdd();
 
-            if(delete)
-            {
+            if(delete){
                 pistola.borrarOldestNailed();
+               
             }   
         }	
 		

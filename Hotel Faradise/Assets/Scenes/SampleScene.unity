@@ -337,6 +337,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5311316828339200940, guid: 1ec5e7b9fd87b114ab4e1e68e7b1057a, type: 3}
   maximumNails: 2
   nailedList: []
+  kate: {fileID: 1833552173}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +432,7 @@ GameObject:
   - component: {fileID: 586361830}
   - component: {fileID: 586361829}
   - component: {fileID: 586361831}
+  - component: {fileID: 586361832}
   m_Layer: 0
   m_Name: Square
   m_TagString: IceWall
@@ -496,12 +498,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586361828}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6.33, y: 1.99, z: 0}
-  m_LocalScale: {x: 0.7984327, y: 0.81589514, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 6.5694203, y: 2.2877696, z: 0.6020619}
+  m_LocalScale: {x: 0.79843277, y: 0.8158952, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1074646104}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &586361831
 BoxCollider2D:
@@ -529,6 +531,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.1, y: 1.28}
   m_EdgeRadius: 0
+--- !u!50 &586361832
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586361828}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &670868427
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +692,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb6471d3f9a5a9544a0c389abfee5a0f, type: 3}
+--- !u!1 &1074646103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1074646104}
+  m_Layer: 0
+  m_Name: icewall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1074646104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074646103}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2394202, y: -0.2977696, z: -0.6020619}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 586361830}
+  - {fileID: 1109354073}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1109354071
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,12 +800,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109354071}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.37, y: 4.73, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6094202, y: 5.0277696, z: 0.6020619}
   m_LocalScale: {x: 0.7984327, y: 0.81589514, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1074646104}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1109354074
 BoxCollider2D:
@@ -850,6 +905,7 @@ GameObject:
   - component: {fileID: 1833552165}
   - component: {fileID: 1833552170}
   - component: {fileID: 1833552171}
+  - component: {fileID: 1833552173}
   - component: {fileID: 1833552172}
   m_Layer: 0
   m_Name: Player_Kate
@@ -1002,8 +1058,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558b3e218bcd2954c9ec4264a3155a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.5
-  jumpForce: 7
+  speed: 9
+  jumpForce: 15
 --- !u!114 &1833552171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1011,7 +1067,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833552164}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d09b6a80f5a92b34c88da896706d1265, type: 3}
   m_Name: 
@@ -1046,10 +1102,32 @@ HingeJoint2D:
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
-  m_UseLimits: 0
+  m_UseLimits: 1
   m_AngleLimits:
     m_LowerAngle: 0
-    m_UpperAngle: 359
+    m_UpperAngle: 30
+--- !u!114 &1833552173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833552164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15c5ea3aa5ed7746badc0948445371e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  hj: {fileID: 0}
+  pushForce: 10
+  attached: 0
+  attachedTo: {fileID: 0}
+  MaxClavos: 2
+  pulleySelected: []
+  RopePrefab: {fileID: 5524541571224824407, guid: f35614d58851392478addeeaabb5305e, type: 3}
+  lianaLength: 5
+  hangingOn: {fileID: 0}
 --- !u!1001 &170973427427976596
 PrefabInstance:
   m_ObjectHideFlags: 0
