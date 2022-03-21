@@ -7,6 +7,7 @@ TagManager:
   - Crank
   - Rope
   - Clavo
+  - IceWall
   layers:
   - Default
   - TransparentFX
