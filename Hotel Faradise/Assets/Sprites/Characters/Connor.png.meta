@@ -46,46 +46,46 @@ TextureImporter:
     second: Connor_13
   - first:
       213: 279235577188266403
-    second: Connor_Iddle
+    second: Connor_Iddle0
   - first:
       213: 8080456415316460984
-    second: Connor_15
+    second: Connor_Iddle1
   - first:
       213: -4159717950877125383
     second: Connor_16
   - first:
       213: 1649666391677419125
-    second: Connor_17
+    second: Connor_Jump0
   - first:
       213: -44368769844531293
-    second: Connor_18
+    second: Connor_Jump2
   - first:
       213: 5805458672307912709
-    second: Connor_19
+    second: Connor_Jump3
   - first:
       213: -8697925062468883289
-    second: Connor_Iddle2
+    second: Connor_Iddle2_Jump4
   - first:
       213: 2788909955636149611
     second: Connor_21
   - first:
       213: -6340043778267560035
-    second: Connor_22
+    second: Connor_JumpSide0
   - first:
       213: 4191526974532219464
     second: Connor_23
   - first:
       213: -2222845380753155680
-    second: Connor_24
+    second: Connor_JumpSide1
   - first:
       213: 7086887539345704460
-    second: Connor_25
+    second: Connor_JumpSide2
   - first:
       213: -5513219403338931070
-    second: Connor_26
+    second: Connor_JumpSide3
   - first:
       213: 2716505385728597937
-    second: Connor_27
+    second: Connor_JumpSide4
   - first:
       213: 9181908447633004703
     second: Connor_28
@@ -241,7 +241,7 @@ TextureImporter:
     second: Connor_78
   - first:
       213: 2654285650660745108
-    second: Connor_79
+    second: Connor_Jump0
   - first:
       213: -5774837402723504786
     second: Connor_80
@@ -268,28 +268,28 @@ TextureImporter:
     second: Connor_87
   - first:
       213: 5183245012534330764
-    second: Connor_88
+    second: Connor_Run0
   - first:
       213: 3317517217783783286
-    second: Connor_89
+    second: Connor_Run1
   - first:
       213: -1014414873058438936
-    second: Connor_90
+    second: Connor_Run2
   - first:
       213: 3916112587522596376
-    second: Connor_91
+    second: Connor_Run3
   - first:
       213: 8355730559219560251
-    second: Connor_92
+    second: Connor_Run4
   - first:
       213: 2772013391355671184
-    second: Connor_93
+    second: Connor_Run5
   - first:
       213: -5127979772484693096
-    second: Connor_94
+    second: Connor_Run6
   - first:
       213: 9115514986356356156
-    second: Connor_95
+    second: Connor_Run7
   - first:
       213: 7921474248762170403
     second: Connor_96
@@ -919,7 +919,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_Iddle
+      name: Connor_Iddle0
       rect:
         serializedVersion: 2
         x: 0
@@ -940,7 +940,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_15
+      name: Connor_Iddle1
       rect:
         serializedVersion: 2
         x: 64
@@ -982,10 +982,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_17
+      name: Connor_Jump1
       rect:
         serializedVersion: 2
-        x: 192
+        x: 191
         y: 1152
         width: 64
         height: 64
@@ -1003,7 +1003,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_18
+      name: Connor_Jump2
       rect:
         serializedVersion: 2
         x: 256
@@ -1024,7 +1024,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_19
+      name: Connor_Jump3
       rect:
         serializedVersion: 2
         x: 320
@@ -1045,7 +1045,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_Iddle2
+      name: Connor_Iddle2_Jump4
       rect:
         serializedVersion: 2
         x: 384
@@ -1087,7 +1087,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_22
+      name: Connor_JumpSide0
       rect:
         serializedVersion: 2
         x: 64
@@ -1129,7 +1129,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_24
+      name: Connor_JumpSide1
       rect:
         serializedVersion: 2
         x: 192
@@ -1150,7 +1150,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_25
+      name: Connor_JumpSide2
       rect:
         serializedVersion: 2
         x: 256
@@ -1171,7 +1171,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_26
+      name: Connor_JumpSide3
       rect:
         serializedVersion: 2
         x: 320
@@ -1192,7 +1192,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_27
+      name: Connor_JumpSide4
       rect:
         serializedVersion: 2
         x: 384
@@ -2078,7 +2078,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 704
+        y: 706
         width: 64
         height: 64
       alignment: 0
@@ -2098,7 +2098,7 @@ TextureImporter:
       name: Connor_70
       rect:
         serializedVersion: 2
-        x: 64
+        x: 63
         y: 704
         width: 64
         height: 64
@@ -2161,7 +2161,7 @@ TextureImporter:
       name: Connor_73
       rect:
         serializedVersion: 2
-        x: 256
+        x: 255
         y: 704
         width: 64
         height: 64
@@ -2284,7 +2284,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_79
+      name: Connor_Jump0
       rect:
         serializedVersion: 2
         x: 64
@@ -2473,7 +2473,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_88
+      name: Connor_Run0
       rect:
         serializedVersion: 2
         x: 64
@@ -2494,7 +2494,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_89
+      name: Connor_Run1
       rect:
         serializedVersion: 2
         x: 128
@@ -2515,7 +2515,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_90
+      name: Connor_Run2
       rect:
         serializedVersion: 2
         x: 192
@@ -2536,11 +2536,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_91
+      name: Connor_Run3
       rect:
         serializedVersion: 2
         x: 256
-        y: 576
+        y: 575
         width: 64
         height: 64
       alignment: 0
@@ -2557,7 +2557,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_92
+      name: Connor_Run4
       rect:
         serializedVersion: 2
         x: 320
@@ -2578,11 +2578,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_93
+      name: Connor_Run5
       rect:
         serializedVersion: 2
-        x: 384
-        y: 576
+        x: 382
+        y: 575
         width: 64
         height: 64
       alignment: 0
@@ -2599,7 +2599,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_94
+      name: Connor_Run6
       rect:
         serializedVersion: 2
         x: 448
@@ -2620,10 +2620,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Connor_95
+      name: Connor_Run7
       rect:
         serializedVersion: 2
-        x: 512
+        x: 511
         y: 576
         width: 64
         height: 64
