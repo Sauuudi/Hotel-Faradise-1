@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
 
         if (grounded && Input.GetKeyDown(KeyCode.Space))
         {
-            _anim.SetBool("jumping", true);
+            _anim.SetTrigger("jumping");
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
     }
@@ -49,7 +49,6 @@ public class Movement : MonoBehaviour
         {
             var (corner1, corner2) = getGroundCheckCorners();
             Collider2D hit = Physics2D.OverlapArea(corner1, corner2);
-            _anim.SetBool("jumping", false);
             return (hit != null);
         }
     }
