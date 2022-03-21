@@ -261,6 +261,7 @@ public class Kate : MonoBehaviour
         {
             if (col.gameObject.tag == "Rope")
             {
+                Debug.Log("hola");
                 if (attachedTo != col.gameObject.transform.parent && !col.gameObject.GetComponent<RopeSegment>().connectedAbove.CompareTag("Clavo"))
                 {
                     if (disregard == null || col.gameObject.transform.parent.gameObject != disregard)

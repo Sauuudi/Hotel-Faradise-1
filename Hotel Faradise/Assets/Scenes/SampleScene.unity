@@ -746,7 +746,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109354071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.37, y: 2.7, z: 0}
+  m_LocalPosition: {x: 0.37, y: 4.73, z: 0}
   m_LocalScale: {x: 0.7984327, y: 0.81589514, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -849,6 +849,8 @@ GameObject:
   - component: {fileID: 1833552168}
   - component: {fileID: 1833552165}
   - component: {fileID: 1833552170}
+  - component: {fileID: 1833552171}
+  - component: {fileID: 1833552172}
   m_Layer: 0
   m_Name: Player_Kate
   m_TagString: Player
@@ -982,8 +984,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 3
+  m_Material: {fileID: 6200000, guid: a72700ff38b5f8748855c0aa853dc9a5, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -1002,6 +1004,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4.5
   jumpForce: 7
+--- !u!114 &1833552171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833552164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d09b6a80f5a92b34c88da896706d1265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  hj: {fileID: 0}
+  pushForce: 10
+  attached: 0
+  attachedTo: {fileID: 0}
+  MaxClavos: 2
+  pulleySelected: []
+  RopePrefab: {fileID: 5524541571224824407, guid: f35614d58851392478addeeaabb5305e, type: 3}
+  lianaLength: 5
+  hangingOn: {fileID: 0}
+--- !u!233 &1833552172
+HingeJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833552164}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_UseMotor: 0
+  m_Motor:
+    m_MotorSpeed: 0
+    m_MaximumMotorForce: 10000
+  m_UseLimits: 0
+  m_AngleLimits:
+    m_LowerAngle: 0
+    m_UpperAngle: 359
 --- !u!1001 &170973427427976596
 PrefabInstance:
   m_ObjectHideFlags: 0
