@@ -8,6 +8,7 @@ TagManager:
   - Rope
   - Clavo
   - IceWall
+  - Box
   layers:
   - Default
   - TransparentFX
