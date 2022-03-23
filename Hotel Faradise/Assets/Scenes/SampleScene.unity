@@ -580,7 +580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 670868428}
   - component: {fileID: 670868430}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: pistol_full
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1042,7 +1042,7 @@ GameObject:
   - component: {fileID: 1833552171}
   - component: {fileID: 1833552173}
   - component: {fileID: 1833552172}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player_Kate
   m_TagString: Player
   m_Icon: {fileID: 0}
