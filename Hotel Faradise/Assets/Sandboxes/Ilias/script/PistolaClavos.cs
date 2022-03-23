@@ -10,9 +10,7 @@ public class PistolaClavos : MonoBehaviour
 	public GameObject bulletPrefab;
     private int nailCount;
     public int maximumNails;
-
-    public List<GameObject> nailedList = new List<GameObject>();
-
+    private List<GameObject> nailedList = new List<GameObject>();
     public Kate1 kate;
 
     
@@ -68,12 +66,11 @@ public class PistolaClavos : MonoBehaviour
     public void borrarOldestNailed()
     {        
            if(nailedList[0] != null)
-            {                
+            {  
+                Debug.Log("this is ilias clavo: "  + nailedList[0].transform.GetChild(0).gameObject);
+                kate.DecreaseSelected(nailedList[0].transform.GetChild(0).gameObject);             
                 Destroy(nailedList[0]);
-                
             }
-            
-            kate.DecreaseSelected(nailedList[0]);
             
             nailedList.RemoveAt(0);
     }

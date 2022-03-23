@@ -214,6 +214,7 @@ public class Kate1 : MonoBehaviour
             if (hit.collider != null && hit.transform.gameObject.tag == "Clavo")
             {
                 GameObject current = hit.transform.gameObject;
+                Debug.Log("this is diego clavo: "  + current);
                 if (checkSelected(current))
                 {
                     current.GetComponent<ClavoCuerda>().Deselect();
@@ -255,8 +256,9 @@ public class Kate1 : MonoBehaviour
         return false;
     }
 
-    public void DecreaseSelected(GameObject clavo){        
-        if(clavosSelected > 0){
+    public void DecreaseSelected(GameObject clavo){ 
+
+        if(checkSelected(clavo)){
             clavosSelected--;            
         }
     }
