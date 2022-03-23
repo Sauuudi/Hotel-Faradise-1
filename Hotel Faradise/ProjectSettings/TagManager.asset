@@ -9,6 +9,8 @@ TagManager:
   - Clavo
   - IceWall
   - Box
+  - IceGround
+  - ClavoObject
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Water
   - UI
   - Bullets
-  - 
+  - IgnoreBullets
   - 
   - 
   - 

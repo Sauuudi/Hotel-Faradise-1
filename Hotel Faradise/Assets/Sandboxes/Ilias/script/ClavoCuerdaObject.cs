@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClavoCuerda : MonoBehaviour
+public class ClavoCuerdaObject : MonoBehaviour
 
 {
 
     private Transform selected;
     public bool isRoped = false;
     public bool isDoubleRoped = false;
-    
-    private void Awake()
+    private HingeJoint2D hj;
+    private Rigidbody2D rb;
+    private void Start()
     {
         selected = transform.Find("Selected");
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        hj = gameObject.GetComponent<HingeJoint2D>();
     }
-    // Start is called before the first frame update
     public void Select()
     {
         selected.gameObject.SetActive(true);
@@ -34,5 +36,4 @@ public class ClavoCuerda : MonoBehaviour
     {
         isDoubleRoped = !isDoubleRoped;
     }
-
 }

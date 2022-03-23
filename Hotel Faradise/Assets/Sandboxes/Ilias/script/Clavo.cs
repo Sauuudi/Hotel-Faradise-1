@@ -8,6 +8,7 @@ public class Clavo : MonoBehaviour
 	public Rigidbody2D rb;
 	//public GameObject clavadoEffect;
     public GameObject nailedPrefab;
+    public GameObject nailedObjectPrefab;
     
     public int lifeTime;
 
@@ -42,7 +43,20 @@ public class Clavo : MonoBehaviour
                 pistola.borrarOldestNailed();
                
             }   
-        }	
+        }
+
+        if (hitInfo.tag.Equals("Box")) //tal vez cambiar eltag a objecto movil
+        {
+            GameObject clone = Instantiate(nailedObjectPrefab, transform.position, transform.rotation);
+            
+            pistola.saveNailedObject(clone);
+            bool delete = pistola.nailAddObject();
+
+            if(delete){
+                pistola.borrarOldestNailedObject();
+               
+            }   
+        }
 		
         Destroy(gameObject);
 	}

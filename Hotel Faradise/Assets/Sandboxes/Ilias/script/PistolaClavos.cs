@@ -9,8 +9,11 @@ public class PistolaClavos : MonoBehaviour
     public Transform firePoint;
 	public GameObject bulletPrefab;
     private int nailCount;
+    private int nailObjectCount;
     public int maximumNails;
+    public int maximumObjectNails;
     private List<GameObject> nailedList = new List<GameObject>();
+    private List<GameObject> nailedListObject = new List<GameObject>();
     public Kate1 kate;
 
     
@@ -18,6 +21,7 @@ public class PistolaClavos : MonoBehaviour
     void Start()
     {       
         nailCount = 0;
+        nailObjectCount = 0;
     }
 
     // Update is called once per frame
@@ -41,21 +45,17 @@ public class PistolaClavos : MonoBehaviour
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
-    public bool nailAdd()
-    {
+    public bool nailAdd(){
         nailCount++;
-        Debug.Log("nails: "+ nailCount);
 
         if (nailCount - 1 >= maximumNails)
         {
-            return true;
-            
+            return true;            
         }
         else
         {
             return false;
-        }
-         
+        }         
     }
 
     public void saveNailed(GameObject nailed)
@@ -67,11 +67,38 @@ public class PistolaClavos : MonoBehaviour
     {        
            if(nailedList[0] != null)
             {  
-                Debug.Log("this is ilias clavo: "  + nailedList[0].transform.GetChild(0).gameObject);
                 kate.DecreaseSelected(nailedList[0].transform.GetChild(0).gameObject);             
                 Destroy(nailedList[0]);
             }
             
             nailedList.RemoveAt(0);
+    }
+
+    public bool nailAddObject(){
+        nailObjectCount++;
+        if (nailObjectCount - 1 >= maximumObjectNails)
+        {
+            return true;            
+        }
+        else
+        {
+            return false;
+        }         
+    }
+
+    public void saveNailedObject(GameObject nailed)
+    {
+        nailedListObject.Add(nailed);
+    }
+
+    public void borrarOldestNailedObject()
+    {        
+           if(nailedListObject[0] != null)
+            {  
+                kate.DecreaseSelected(nailedListObject[0].transform.GetChild(0).gameObject);             
+                Destroy(nailedListObject[0]);
+            }
+            
+            nailedListObject.RemoveAt(0);
     }
 }

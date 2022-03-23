@@ -74,7 +74,7 @@ public class Kate1 : MonoBehaviour
                 {
                     if (!clavo0.GetComponent<ClavoCuerda>().isRoped)
                     {
-                        GenerateRope(clavo0);
+                        GenerateRope(clavo0,false);
                         clavo0.GetComponent<ClavoCuerda>().changeRoped();
                     }
                     else
@@ -101,6 +101,28 @@ public class Kate1 : MonoBehaviour
                 }
             }
         }
+        if (Input.GetKeyDown("t") && pulleySelected[0] != null)
+        {
+            GameObject clavo0 = pulleySelected[0];
+            if(clavo0 != null)
+            {
+                GameObject clavo1 = pulleySelected[1];
+                
+                
+                    if (!clavo0.GetComponent<ClavoCuerdaObject>().isRoped)
+                    {
+                        GenerateRope(clavo0,true);
+                        clavo0.GetComponent<ClavoCuerdaObject>().changeRoped();
+                    }
+                    else
+                    {
+                        DestroyRope(clavo0,"Gancho");
+                        clavo0.GetComponent<ClavoCuerdaObject>().changeRoped();
+                    }
+                
+                
+            }
+        }
 
         if ((Input.GetKeyDown("w") || Input.GetKeyDown("up")) && attached)
         {
@@ -121,14 +143,17 @@ public class Kate1 : MonoBehaviour
         }
     }
 
-    void GenerateRope(GameObject clavo)
+    void GenerateRope(GameObject clavo, bool obj)
     {   
-
+        int aux = lianaLength;
         Rigidbody2D prevBod = clavo.GetComponent<Rigidbody2D>(); ; //previous rigidBody
         currentRope = new GameObject();
         currentRope.name = "Gancho";
         currentRope.transform.parent = clavo.transform.parent.transform;
-        for (int i = 0; i < lianaLength; i++)
+        if(obj){
+           aux = 2;
+        }
+        for (int i = 0; i < aux; i++)
         {
             GameObject newSeg = Instantiate(RopePrefab);
             newSeg.transform.parent = currentRope.transform;
@@ -214,7 +239,6 @@ public class Kate1 : MonoBehaviour
             if (hit.collider != null && hit.transform.gameObject.tag == "Clavo")
             {
                 GameObject current = hit.transform.gameObject;
-                Debug.Log("this is diego clavo: "  + current);
                 if (checkSelected(current))
                 {
                     current.GetComponent<ClavoCuerda>().Deselect();
@@ -224,6 +248,21 @@ public class Kate1 : MonoBehaviour
                 {
                     pulleySelected[clavosSelected] = current;
                     pulleySelected[clavosSelected].GetComponent<ClavoCuerda>().Select();
+                    clavosSelected++;
+                }
+            }
+            if (hit.collider != null && hit.transform.gameObject.tag == "ClavoObject")
+            {
+                GameObject current = hit.transform.gameObject;
+                if (checkSelected(current))
+                {
+                    current.GetComponent<ClavoCuerdaObject>().Deselect();
+                    clavosSelected--;
+                }
+                else if (clavosSelected < MaxClavos)
+                {
+                    pulleySelected[clavosSelected] = current;
+                    pulleySelected[clavosSelected].GetComponent<ClavoCuerdaObject>().Select();
                     clavosSelected++;
                 }
             }
