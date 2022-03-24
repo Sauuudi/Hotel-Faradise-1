@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Movement : MonoBehaviour
 {
@@ -11,8 +12,14 @@ public class Movement : MonoBehaviour
     private Animator _anim;
     private BoxCollider2D _box;
 
+    [SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
+    [SerializeField] private Transform m_GroundCheck;		// A position marking where to check if the player is grounded.
+    const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
+	private bool m_Grounded;   // Whether or not the player is grounded.
+
     public float iceSpeed;
     private bool onIce;
+    public UnityEvent OnLandEvent;
 
     void Start()
     {
@@ -21,6 +28,11 @@ public class Movement : MonoBehaviour
         _box = GetComponent<BoxCollider2D>();
         iceSpeed = 20;
         onIce = false;
+    }
+
+    private void Awake() {
+        if (OnLandEvent == null)
+			OnLandEvent = new UnityEvent();
     }
     void Update()
     {   
@@ -35,7 +47,7 @@ public class Movement : MonoBehaviour
             _body.velocity = movement;  
         }
 
-        if (grounded && !onIce && Input.GetKeyDown(KeyCode.Space))
+        if (m_Grounded && !onIce && Input.GetKeyDown(KeyCode.Space))
         {
             _anim.SetTrigger("jumping");
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -54,6 +66,25 @@ public class Movement : MonoBehaviour
         
     }
 
+    private void FixedUpdate() {
+        bool wasGrounded = m_Grounded;
+		m_Grounded = false;
+
+        // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
+		// This can be done using layers instead but Sample Assets will not overwrite your project settings.
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+		for (int i = 0; i < colliders.Length; i++)
+		{
+			if (colliders[i].gameObject != gameObject)
+			{
+                Debug.Log("es grounded");
+				m_Grounded = true;
+				if (!wasGrounded)
+					OnLandEvent.Invoke();
+			}
+		}
+    }
+
     private (Vector2, Vector2) getGroundCheckCorners()
     {
         Vector3 max = _box.bounds.max;
@@ -62,7 +93,7 @@ public class Movement : MonoBehaviour
         Vector2 corner2 = new Vector2(min.x, min.y - .2f);
         return (corner1, corner2);
     }
-    public bool grounded
+    /*public bool grounded
     {
         get
         {
@@ -70,6 +101,6 @@ public class Movement : MonoBehaviour
             Collider2D hit = Physics2D.OverlapArea(corner1, corner2);
             return (hit != null);
         }
-    }
+    }*/
     
 }
