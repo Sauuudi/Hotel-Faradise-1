@@ -14,7 +14,7 @@ public class GrabConnor : MonoBehaviour
     {
         RaycastHit2D grabCheck = Physics2D.Raycast(_grabDetect.position, Vector2.right * transform.localScale, rayDistance);
 
-        if(grabCheck.collider != null && grabCheck.collider.tag == "Box")
+        if(grabCheck.collider != null && grabCheck.collider.tag == "Box")//podemos poner tag de objetos moviles
         {
             if(Input.GetKey(KeyCode.C))
             {

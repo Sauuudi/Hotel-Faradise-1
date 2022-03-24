@@ -38,6 +38,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isRoped: 0
   isDoubleRoped: 0
+--- !u!58 &5937688643609251984
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4486925446804827282}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.75
 --- !u!1001 &798170979823729892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,13 +77,21 @@ PrefabInstance:
       propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3843662497166741618, guid: 4972b37451b92e14ea551ce16317d5a7, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3843662497166741618, guid: 4972b37451b92e14ea551ce16317d5a7, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3843662497166741620, guid: 4972b37451b92e14ea551ce16317d5a7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3843662497166741620, guid: 4972b37451b92e14ea551ce16317d5a7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3843662497166741621, guid: 4972b37451b92e14ea551ce16317d5a7, type: 3}
       propertyPath: m_Sprite
@@ -120,6 +144,14 @@ PrefabInstance:
     - target: {fileID: 6280631569385569160, guid: 4972b37451b92e14ea551ce16317d5a7, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280631569385569160, guid: 4972b37451b92e14ea551ce16317d5a7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280631569385569160, guid: 4972b37451b92e14ea551ce16317d5a7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6280631569385569160, guid: 4972b37451b92e14ea551ce16317d5a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -175,6 +207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3843662497166741619, guid: 4972b37451b92e14ea551ce16317d5a7, type: 3}
+    - {fileID: 3843662497166741618, guid: 4972b37451b92e14ea551ce16317d5a7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4972b37451b92e14ea551ce16317d5a7, type: 3}
 --- !u!1 &4486925446804827282 stripped
 GameObject:
