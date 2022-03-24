@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5716583255768469606}
   - component: {fileID: 4896365322720201917}
   - component: {fileID: 4892895366554788819}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: IceCube
   m_TagString: Box
   m_Icon: {fileID: 0}

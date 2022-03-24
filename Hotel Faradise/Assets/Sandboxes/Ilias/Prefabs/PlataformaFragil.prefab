@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7713077583230030592}
   - component: {fileID: 7713077583230030604}
   - component: {fileID: 7713077583230030605}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlataformaFragil
   m_TagString: Untagged
   m_Icon: {fileID: 0}

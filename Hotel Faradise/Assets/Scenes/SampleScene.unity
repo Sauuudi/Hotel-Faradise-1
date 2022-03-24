@@ -792,6 +792,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plataforma1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 170973427954582174, guid: cb6471d3f9a5a9544a0c389abfee5a0f, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb6471d3f9a5a9544a0c389abfee5a0f, type: 3}
 --- !u!1 &1074646103
@@ -980,7 +984,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1215903749}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1475,7 +1479,7 @@ MonoBehaviour:
   jumpForce: 15
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 768
   m_GroundCheck: {fileID: 66287000}
   iceSpeed: 0
   OnLandEvent:
@@ -1581,6 +1585,10 @@ PrefabInstance:
     - target: {fileID: 170973427954582174, guid: cb6471d3f9a5a9544a0c389abfee5a0f, type: 3}
       propertyPath: m_Name
       value: Plataforma1
+      objectReference: {fileID: 0}
+    - target: {fileID: 170973427954582174, guid: cb6471d3f9a5a9544a0c389abfee5a0f, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb6471d3f9a5a9544a0c389abfee5a0f, type: 3}
