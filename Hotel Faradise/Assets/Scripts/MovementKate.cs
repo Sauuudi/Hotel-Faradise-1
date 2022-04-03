@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Movement : MonoBehaviour
+public class MovementKate : MonoBehaviour
 {
     public float speed = 2f; 
     public float jumpForce = 5.0f;
@@ -41,7 +41,16 @@ public class Movement : MonoBehaviour
     void Update()
     {   
         if(!m_onIce){
-            float deltaX = Input.GetAxis("Horizontal") * speed ;
+            float deltaX = 0f;
+            if (Mathf.Abs(Input.GetAxis("Horizontal_originalK") * speed) > Mathf.Abs(Input.GetAxis("Horizontal joyconL joystick") * speed))
+            {
+                deltaX = Input.GetAxis("Horizontal_originalK") * speed;
+            }
+            else
+            {
+                deltaX = Input.GetAxis("Horizontal joyconL joystick") * speed;
+            }
+
             _anim.SetFloat("speed", Mathf.Abs(deltaX));
             if (!Mathf.Approximately(deltaX, 0f))
             {
@@ -51,7 +60,7 @@ public class Movement : MonoBehaviour
             _body.velocity = movement;  
         }
 
-        if (m_Grounded && !m_onIce && Input.GetKeyDown(KeyCode.Space))
+        if (m_Grounded && !m_onIce && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
         {
             _anim.SetTrigger("jumping");
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
