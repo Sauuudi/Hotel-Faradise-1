@@ -6,13 +6,29 @@ InputManager:
   serializedVersion: 2
   m_Axes:
   - serializedVersion: 3
-    m_Name: Horizontal_original
+    m_Name: Horizontal_originalK
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: left
     positiveButton: right
-    altNegativeButton: a
-    altPositiveButton: d
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 9.8
+    dead: 0.001
+    sensitivity: 4
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Horizontal_originalC
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: a
+    positiveButton: d
+    altNegativeButton: 
+    altPositiveButton: 
     gravity: 9.8
     dead: 0.001
     sensitivity: 4
@@ -36,7 +52,7 @@ InputManager:
     invert: 0
     type: 0
     axis: 0
-    joyNum: 0
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Horizontal joyconL joystick
     descriptiveName: 
@@ -52,7 +68,23 @@ InputManager:
     invert: 0
     type: 2
     axis: 8
-    joyNum: 0
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Horizontal joyconR joystick
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
+    sensitivity: 4
+    snap: 0
+    invert: 0
+    type: 2
+    axis: 8
+    joyNum: 2
   - serializedVersion: 3
     m_Name: Vertical
     descriptiveName: 
