@@ -99,11 +99,11 @@ public class MovementKate : MonoBehaviour
 
         if (m_onIce)
         {
-            Debug.Log("estoy en hielo xdd");
+            //Debug.Log("estoy en hielo xdd");
         }
         if (m_Grounded)
         {
-            Debug.Log("estoy en el suelo ");
+            //Debug.Log("estoy en el suelo ");
         }
     }
 
@@ -145,5 +145,24 @@ public class MovementKate : MonoBehaviour
         return _body.velocity.magnitude > 0.3;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Debug.Log(collision.gameObject.tag.ToString());
+        if (collision.CompareTag("0Gravity"))
+        {
+            _body.gravityScale = 0;
+        }
+        else {
+            _body.gravityScale = 3;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("0Gravity"))
+        {
+            _body.gravityScale = 3;
+        }
+    }
 
 }

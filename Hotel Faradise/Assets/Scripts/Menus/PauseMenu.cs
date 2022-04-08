@@ -7,7 +7,8 @@ public class PauseMenu : MonoBehaviour {
     // Start is called before the first frame update
     public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
-    void update (){
+    void Update (){
+
         if(Input.GetKeyDown(KeyCode.Escape)){
             Debug.Log("escape");
             if(GameIsPaused){

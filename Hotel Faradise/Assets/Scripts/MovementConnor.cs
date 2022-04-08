@@ -103,6 +103,26 @@ public class MovementConnor : MonoBehaviour
 		}
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Debug.Log(collision.gameObject.tag.ToString());
+        if (collision.CompareTag("0Gravity"))
+        {
+            _body.gravityScale = 0;
+        }
+        else
+        {
+            _body.gravityScale = 3;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("0Gravity"))
+        {
+            _body.gravityScale = 3;
+        }
+    }
     /*private (Vector2, Vector2) getGroundCheckCorners()
     {
         Vector3 max = _box.bounds.max;
@@ -120,5 +140,5 @@ public class MovementConnor : MonoBehaviour
             return (hit != null);
         }
     }*/
-    
+
 }
