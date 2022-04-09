@@ -1513,5 +1513,5 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: -5}
   smoothTime: 0.2
   maxZoom: 2
-  minZoom: 10
+  minZoom: 7
   zoomLimiter: 20
