@@ -12,6 +12,7 @@ TagManager:
   - IceGround
   - ClavoObject
   - 0Gravity
+  - Balanza
   layers:
   - Default
   - TransparentFX

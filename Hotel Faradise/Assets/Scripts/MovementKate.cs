@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class MovementKate : MonoBehaviour
 {
+    public float weight = 0f;
     public float speed = 2f;
     public float jumpForce = 5.0f;
     public float iceSpeed;
@@ -155,6 +156,10 @@ public class MovementKate : MonoBehaviour
         else {
             _body.gravityScale = 3;
         }
+        if (collision.CompareTag("Balanza"))
+        {
+            collision.GetComponent<contrapeso>().changeWeight(weight);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -162,6 +167,10 @@ public class MovementKate : MonoBehaviour
         if (collision.CompareTag("0Gravity"))
         {
             _body.gravityScale = 3;
+        }
+        if (collision.CompareTag("Balanza"))
+        {
+            collision.GetComponent<contrapeso>().changeWeight(-weight);
         }
     }
 

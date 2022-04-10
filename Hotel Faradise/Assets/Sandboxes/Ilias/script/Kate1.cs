@@ -304,6 +304,7 @@ public class Kate1 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        
         if (!attached)
         {
             if (col.gameObject.tag == "Rope")
@@ -321,6 +322,10 @@ public class Kate1 : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+    }
     public void Attach(Rigidbody2D ropeBone)
     {
         ropeBone.gameObject.GetComponent<RopeSegment>().isPlayerAttached = true;
