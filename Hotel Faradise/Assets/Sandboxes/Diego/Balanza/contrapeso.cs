@@ -14,11 +14,13 @@ public class contrapeso : MonoBehaviour
     private float realWeight = 0f;
     //private float extraWeight = 0;
     private bool onCoroutine = false;
+    //private Rigidbody2D body;
     //public int id;
     public GameObject brotherPlatform;
     private void Start()
     {
         originalY = transform.position.y;
+        //body = GetComponent<Rigidbody2D>();
         //balanzaParent = GetComponentInParent<balanza>().gameObject;
         //transform.position = start.position;
         //end = start;
@@ -90,10 +92,12 @@ public class contrapeso : MonoBehaviour
         {
             if (end.position.y > transform.position.y)
             {
+                //body.MovePosition(new Vector2(transform.position.x, transform.position.y + Time.deltaTime * 1.5f));
                 transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime*1.5f, transform.position.z);
             }
             else
             {
+                //body.MovePosition(new Vector2(transform.position.x, transform.position.y - Time.deltaTime * 1.5f));
                 transform.position = new Vector3(transform.position.x, transform.position.y - Time.deltaTime*1.5f, transform.position.z);
             }
             end.position = new Vector3(transform.position.x, originalY + weight, transform.position.z);
