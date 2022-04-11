@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Recepcion.unity
+    guid: 74e4a605c6aa57743b75c78679c8f0cf
+  - enabled: 1
+    path: Assets/Scenes/Nivel Maletas.unity
+    guid: 9bfc59a4b30ac52429ede201a34a64ff
   m_configObjects: {}
