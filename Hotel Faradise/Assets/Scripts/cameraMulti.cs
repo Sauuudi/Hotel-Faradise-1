@@ -54,7 +54,7 @@ using UnityEngine;
              bounds.Encapsulate(targets[i].position);
          }
  
-         return bounds.size.x;
+         return bounds.size.y;
      }
  
      Vector3 GetCenterPoint()
