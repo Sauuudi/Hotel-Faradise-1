@@ -27,7 +27,7 @@ TagManager:
   - IceGround
   - Kate
   - Connor
-  - 
+  - Interactuables
   - 
   - 
   - 
@@ -55,6 +55,9 @@ TagManager:
     locked: 0
   - name: Details
     uniqueID: 2728668101
+    locked: 0
+  - name: Interactuables
+    uniqueID: 2626826503
     locked: 0
   - name: Objects
     uniqueID: 1995007411
