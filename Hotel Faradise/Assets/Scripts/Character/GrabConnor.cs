@@ -21,7 +21,7 @@ public class GrabConnor : MonoBehaviour
 
         if(grabCheck.collider != null && grabCheck.collider.tag == "Box") //tag de objetos moviles
         {
-            if(Input.GetKey(KeyCode.C))
+            if(Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.Joystick2Button2))
             {
                 if (!grabbing)
                 {
@@ -53,7 +53,7 @@ public class GrabConnor : MonoBehaviour
             } */
         }
 
-        if(grabbing && !Input.GetKey(KeyCode.C))
+        if(grabbing && !(Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.Joystick2Button2)))
         {
             this.GetComponent<MovementConnor>().jumpForce = this.GetComponent<MovementConnor>().jumpForce - 18;
             grabbing = false;

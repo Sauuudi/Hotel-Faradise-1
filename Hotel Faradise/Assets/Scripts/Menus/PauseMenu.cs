@@ -9,7 +9,8 @@ public class PauseMenu : MonoBehaviour {
     public GameObject pauseMenuUI;
     void Update (){
 
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick2Button3) || Input.GetKeyDown(KeyCode.Joystick1Button3))
+        {
             Debug.Log("escape");
             if(GameIsPaused){
                 Resume();

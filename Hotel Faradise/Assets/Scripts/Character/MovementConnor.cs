@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class MovementConnor : MonoBehaviour
 {
-    public float weight = 0f;
     public float speed = 2f; 
     public float jumpForce = 5.0f;
     public float iceSpeed;
@@ -115,10 +114,6 @@ public class MovementConnor : MonoBehaviour
         {
             _body.gravityScale = 3;
         }
-        if (collision.CompareTag("Balanza"))
-        {
-            collision.GetComponent<contrapeso>().changeWeight(weight);
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -126,10 +121,6 @@ public class MovementConnor : MonoBehaviour
         if (collision.CompareTag("0Gravity"))
         {
             _body.gravityScale = 3;
-        }
-        if (collision.CompareTag("Balanza"))
-        {
-            collision.GetComponent<contrapeso>().changeWeight(-weight);
         }
     }
     /*private (Vector2, Vector2) getGroundCheckCorners()
