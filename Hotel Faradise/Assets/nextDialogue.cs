@@ -9,8 +9,7 @@ public class nextDialogue : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.Joystick1Button1) || Input.GetKey("q") ||
-            Input.GetKey(KeyCode.Joystick2Button1) || Input.GetKey("m") ||
-            Input.GetKeyDown(KeyCode.Joystick2Button0) || Input.GetKeyDown(KeyCode.Joystick1Button0))
+            Input.GetKey(KeyCode.Joystick2Button1) || Input.GetKey("m"))
         {
             //Debug.Log("hola");
             this.GetComponent<Button>().onClick.Invoke();
