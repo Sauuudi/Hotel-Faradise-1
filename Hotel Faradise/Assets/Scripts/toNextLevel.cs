@@ -6,20 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class toNextLevel : MonoBehaviour
 {
-    public Transform Mask;
+    public GameObject Text;
     public GameObject Circle;
+    public Transform Mask;
+    
     private bool pressC = false;
     private bool pressK = false;
     private float totalAmount = 0f;
     private bool onCoroutine = false;
     private Material mySpriteMaterial;
     private float originalX;
+    public int goToScene;
 
     // Start is called before the first frame update
     void Start()
     {
         mySpriteMaterial = Circle.GetComponent<SpriteRenderer>().material;
         originalX = Mask.position.x;
+        Text.GetComponent<Renderer>().sortingLayerName = "Details";
+        Text.GetComponent<Renderer>().sortingOrder = 1;
     }
 
     // Update is called once per frame
@@ -86,6 +91,6 @@ public class toNextLevel : MonoBehaviour
             
         }
         onCoroutine = false;
-        if (!release && mySpriteMaterial.GetFloat("_FillAmount") >= 1) SceneManager.LoadScene(3);
+        if (!release && mySpriteMaterial.GetFloat("_FillAmount") >= 1) SceneManager.LoadScene(goToScene);
     }
 }
