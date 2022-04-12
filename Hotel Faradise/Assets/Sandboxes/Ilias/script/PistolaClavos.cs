@@ -5,6 +5,8 @@ using UnityEngine;
 public class PistolaClavos : MonoBehaviour
 {   
 
+
+    public bool enableShoot;
     public float offset;
     public Transform firePoint;
 	public GameObject bulletPrefab;
@@ -12,6 +14,7 @@ public class PistolaClavos : MonoBehaviour
     private int nailObjectCount;
     public int maximumNails;
     public int maximumObjectNails;
+    
     private List<GameObject> nailedList = new List<GameObject>();
     private List<GameObject> nailedListObject = new List<GameObject>();
     public Kate1 kate;
@@ -22,6 +25,7 @@ public class PistolaClavos : MonoBehaviour
     {       
         nailCount = 0;
         nailObjectCount = 0;
+        enableShoot = true;
     }
 
     // Update is called once per frame
@@ -32,7 +36,7 @@ public class PistolaClavos : MonoBehaviour
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (enableShoot && Input.GetKeyDown(KeyCode.Mouse1))
 		{
 			Shoot();
 		}
