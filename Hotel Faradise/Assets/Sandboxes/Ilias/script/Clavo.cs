@@ -45,7 +45,7 @@ public class Clavo : MonoBehaviour
             }   
         }
 
-        if (hitInfo.tag.Equals("Box")) //tal vez cambiar eltag a objecto movil
+        if (hitInfo.tag.Equals("AQUI EL TAG DE LOS oBJEToS MOVILES")) 
         {
             GameObject clone = Instantiate(nailedObjectPrefab, transform.position, transform.rotation);
             

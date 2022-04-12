@@ -13,6 +13,7 @@ TagManager:
   - ClavoObject
   - 0Gravity
   - Balanza
+  - objetoMovil
   layers:
   - Default
   - TransparentFX
