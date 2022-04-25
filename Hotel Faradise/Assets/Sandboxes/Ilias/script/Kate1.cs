@@ -101,28 +101,7 @@ public class Kate1 : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown("t") && pulleySelected[0] != null)
-        {
-            GameObject clavo0 = pulleySelected[0];
-            if(clavo0 != null)
-            {
-                GameObject clavo1 = pulleySelected[1];
-                
-                
-                    if (!clavo0.GetComponent<ClavoCuerdaObject>().isRoped)
-                    {
-                        GenerateRope(clavo0,true);
-                        clavo0.GetComponent<ClavoCuerdaObject>().changeRoped();
-                    }
-                    else
-                    {
-                        DestroyRope(clavo0,"Gancho");
-                        clavo0.GetComponent<ClavoCuerdaObject>().changeRoped();
-                    }
-                
-                
-            }
-        }
+        
 
         if ((Input.GetKeyDown("w") || Input.GetKeyDown("up")) && attached)
         {
@@ -250,22 +229,7 @@ public class Kate1 : MonoBehaviour
                     pulleySelected[clavosSelected].GetComponent<ClavoCuerda>().Select();
                     clavosSelected++;
                 }
-            }
-            if (hit.collider != null && hit.transform.gameObject.tag == "ClavoObject")
-            {
-                GameObject current = hit.transform.gameObject;
-                if (checkSelected(current))
-                {
-                    current.GetComponent<ClavoCuerdaObject>().Deselect();
-                    clavosSelected--;
-                }
-                else if (clavosSelected < MaxClavos)
-                {
-                    pulleySelected[clavosSelected] = current;
-                    pulleySelected[clavosSelected].GetComponent<ClavoCuerdaObject>().Select();
-                    clavosSelected++;
-                }
-            }
+            }          
         }
     }
 

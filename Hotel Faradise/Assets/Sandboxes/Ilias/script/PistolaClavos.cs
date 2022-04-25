@@ -13,10 +13,10 @@ public class PistolaClavos : MonoBehaviour
     private int nailCount;
     private int nailObjectCount;
     public int maximumNails;
-    public int maximumObjectNails;
+    public int maximumJumpNails;
     
     private List<GameObject> nailedList = new List<GameObject>();
-    private List<GameObject> nailedListObject = new List<GameObject>();
+    public List<GameObject> nailedListJump = new List<GameObject>();
     public Kate1 kate;
 
     
@@ -36,7 +36,7 @@ public class PistolaClavos : MonoBehaviour
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
 
-        if (enableShoot && Input.GetKeyDown(KeyCode.Mouse1))
+        if ( Input.GetKeyDown(KeyCode.Mouse1))
 		{
 			Shoot();
 		}
@@ -80,8 +80,9 @@ public class PistolaClavos : MonoBehaviour
 
     public bool nailAddObject(){
         nailObjectCount++;
-        if (nailObjectCount - 1 >= maximumObjectNails)
-        {
+        if (nailObjectCount - 1 >= maximumJumpNails)
+        { 
+            
             return true;            
         }
         else
@@ -92,17 +93,16 @@ public class PistolaClavos : MonoBehaviour
 
     public void saveNailedObject(GameObject nailed)
     {
-        nailedListObject.Add(nailed);
+        nailedListJump.Add(nailed);
     }
 
     public void borrarOldestNailedObject()
     {        
-           if(nailedListObject[0] != null)
-            {  
-                kate.DecreaseSelected(nailedListObject[0].transform.GetChild(0).gameObject);             
-                Destroy(nailedListObject[0]);
+           if(nailedListJump[0] != null)
+            {              
+                Destroy(nailedListJump[0]);
             }
             
-            nailedListObject.RemoveAt(0);
+            nailedListJump.RemoveAt(0);
     }
 }

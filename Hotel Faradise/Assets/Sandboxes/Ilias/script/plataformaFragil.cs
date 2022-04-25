@@ -18,9 +18,7 @@ public class plataformaFragil : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D col) {
-        //podmeos poner gameObject.name Kate o Connor si queremos que se
-        //caiga solo cuando la pise connor
-        if(col.gameObject.tag.Equals("Player")){ 
+        if(col.gameObject.tag.Equals("Player") ){ 
             Invoke("DropPlatform", 0.5f);
             Destroy(gameObject, 2f);
         }

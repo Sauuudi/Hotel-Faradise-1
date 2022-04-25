@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2284613962014031196}
   m_Layer: 6
   m_Name: Clavo
-  m_TagString: Untagged
+  m_TagString: Clavo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,8 +121,8 @@ MonoBehaviour:
   speed: 20
   rb: {fileID: 4346245694581826108}
   nailedPrefab: {fileID: 6645876418339112813, guid: a96546a3a1096c44c84eef993390de8a, type: 3}
-  nailedObjectPrefab: {fileID: 6645876418339112813, guid: 7f3f5966c1e614345bc0dfa4944c76bf, type: 3}
-  lifeTime: 2
+  clavoSaltoPrefab: {fileID: 1869786290183041939, guid: 3c6063340575cfa4399440376409903c, type: 3}
+  lifeTime: 3
 --- !u!58 &2284613962014031196
 CircleCollider2D:
   m_ObjectHideFlags: 0

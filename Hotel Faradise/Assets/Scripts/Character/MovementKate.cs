@@ -20,6 +20,9 @@ public class MovementKate : MonoBehaviour
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;   // Whether or not the player is grounded.
     private bool m_onIce;
+    private bool m_onIceDiagonal;
+    private bool movementAllowed;
+    private bool jumpAllowed;
     private Vector3 lastPos;
     public UnityEvent OnLandEvent;
     public UnityEvent OnIceEvent;
@@ -31,6 +34,8 @@ public class MovementKate : MonoBehaviour
         _box = GetComponent<BoxCollider2D>();
         iceSpeed = 20;
         lastPos = transform.position;
+        movementAllowed = true;
+        jumpAllowed = true;
     }
 
     private void Awake()
@@ -42,8 +47,31 @@ public class MovementKate : MonoBehaviour
             OnIceEvent = new UnityEvent();
     }
     async void Update()
-    {
-        if (!m_onIce)
+    {   
+        if(!m_Grounded && !m_onIceDiagonal && !m_onIce){
+            movementAllowed = true;
+            jumpAllowed = false;
+        }
+        else if(m_onIceDiagonal){
+            movementAllowed = false;
+            jumpAllowed = false;
+        }
+        else if(m_onIce){//esta parte se tiene que mejorar
+            if(isMoving()){
+                movementAllowed = false;
+                jumpAllowed = false;
+            }
+            else{
+                movementAllowed = true;
+                jumpAllowed = true;
+            }
+        }
+        else {
+            movementAllowed = true;
+            jumpAllowed = true;
+        }
+
+        if (movementAllowed)
         {
             float deltaX = 0f;
             if (Mathf.Abs(Input.GetAxis("Horizontal_originalK") * speed) > Mathf.Abs(Input.GetAxis("Horizontal joyconL joystick") * speed))
@@ -63,49 +91,26 @@ public class MovementKate : MonoBehaviour
             Vector2 movement = new Vector2(deltaX, _body.velocity.y);
             _body.velocity = movement;
         }
-        else if (!isMoving())
-        {
-            float deltaX = 0f;
-            if (Mathf.Abs(Input.GetAxis("Horizontal_originalK") * speed) > Mathf.Abs(Input.GetAxis("Horizontal joyconL joystick") * speed))
-            {
-                deltaX = Input.GetAxis("Horizontal_originalK") * speed;
-            }
-            else
-            {
-                deltaX = Input.GetAxis("Horizontal joyconL joystick") * speed;
-            }
 
-            _anim.SetFloat("speed", Mathf.Abs(deltaX));
-            if (!Mathf.Approximately(deltaX, 0f))
-            {
-                transform.localScale = new Vector3(Mathf.Sign(deltaX), 1f, 1f);
-            }
-            Vector2 movement = new Vector2(deltaX, _body.velocity.y);
-            _body.velocity = movement;
-        }
-
-
-
-
-        if (m_Grounded && !m_onIce && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
+        if (jumpAllowed && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
         {
             _anim.SetTrigger("jumping");
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
-        else if (m_onIce && !isMoving() && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
-        {
-            _anim.SetTrigger("jumping");
-            _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
+        
 
-        if (m_onIce)
+       /* if (m_onIce)
         {
-            //Debug.Log("estoy en hielo xdd");
+            Debug.Log("estoy en hielo xdd");
         }
         if (m_Grounded)
         {
-            //Debug.Log("estoy en el suelo ");
+            Debug.Log("estoy en el suelo ");
         }
+        if(m_onIceDiagonal){
+            Debug.Log("estoy en rampa de hielo");
+        }*/
+
     }
 
     private void FixedUpdate()
@@ -115,6 +120,7 @@ public class MovementKate : MonoBehaviour
 
         bool wasOnIce = m_onIce;
         m_onIce = false;
+        m_onIceDiagonal = false;
 
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
         // This can be done using layers instead but Sample Assets will not overwrite your project settings.
@@ -138,10 +144,14 @@ public class MovementKate : MonoBehaviour
                 if (!wasOnIce)
                     OnLandEvent.Invoke();
             }
+            if (collidersIce[i].gameObject.tag == "DiagonalGroundIce")
+            {
+                m_onIceDiagonal = true;
+            }
         }
     }
 
-    private bool isMoving()
+    private bool isMoving() //esto se tiene que mejorar
     {
         return _body.velocity.magnitude > 0.3;
     }

@@ -14,6 +14,9 @@ TagManager:
   - 0Gravity
   - Balanza
   - objetoMovil
+  - DiagonalGroundIce
+  - ClavoSalto
+  - groundCheck
   layers:
   - Default
   - TransparentFX
@@ -29,8 +32,8 @@ TagManager:
   - Kate
   - Connor
   - Interactuables
-  - 
-  - 
+  - IgnorePlayer
+  - IgnoreGround
   - 
   - 
   - 

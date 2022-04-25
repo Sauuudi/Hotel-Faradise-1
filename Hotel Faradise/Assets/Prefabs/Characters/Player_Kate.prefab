@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9026693956795077201}
   m_Layer: 11
   m_Name: groundCheck
-  m_TagString: Untagged
+  m_TagString: groundCheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9026693956795077202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.78, z: 0}
+  m_LocalPosition: {x: 0, y: -0.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9026693958785034195}
@@ -73,12 +73,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc105ebdb06cf474dbd5a8c7f3d0b346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableShoot: 0
+  enableShoot: 1
   offset: 0
   firePoint: {fileID: 9026693957166065711}
   bulletPrefab: {fileID: 5311316828339200940, guid: 1ec5e7b9fd87b114ab4e1e68e7b1057a, type: 3}
   maximumNails: 2
-  maximumObjectNails: 1
+  maximumJumpNails: 2
+  nailedListJump: []
   kate: {fileID: 9026693958785034217}
 --- !u!1 &9026693957543088648
 GameObject:
@@ -287,7 +288,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.13176042}
+  m_Offset: {x: 0, y: -0.065546036}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -298,7 +299,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 1.2135209}
+  m_Size: {x: 0.6, y: 1.3446131}
   m_EdgeRadius: 0
 --- !u!95 &9026693958785034199
 Animator:

@@ -19,6 +19,9 @@ public class MovementConnor : MonoBehaviour
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;   // Whether or not the player is grounded.
     private bool m_onIce;
+    private bool m_onIceDiagonal;
+    private bool movementAllowed;
+    private bool jumpAllowed;
     
     public UnityEvent OnLandEvent;
     public UnityEvent OnIceEvent;
@@ -40,15 +43,40 @@ public class MovementConnor : MonoBehaviour
     }
     void Update()
     {   
-        if(!m_onIce){
+         
+        if(!m_Grounded && !m_onIceDiagonal && !m_onIce){
+            movementAllowed = true;
+            jumpAllowed = false;
+        }
+        else if(m_onIceDiagonal){
+            movementAllowed = false;
+            jumpAllowed = false;
+        }
+        else if(m_onIce){//esta parte se tiene que mejorar
+            if(isMoving()){
+                movementAllowed = false;
+                jumpAllowed = false;
+            }
+            else{
+                movementAllowed = true;
+                jumpAllowed = true;
+            }
+        }
+        else {
+            movementAllowed = true;
+            jumpAllowed = true;
+        }
+
+        if (movementAllowed)
+        {
             float deltaX = 0f;
-            if (Mathf.Abs(Input.GetAxis("Horizontal_originalC") * speed) > Mathf.Abs(Input.GetAxis("Horizontal joyconR joystick") * speed))
+            if (Mathf.Abs(Input.GetAxis("Horizontal_originalK") * speed) > Mathf.Abs(Input.GetAxis("Horizontal joyconL joystick") * speed))
             {
-                deltaX = Input.GetAxis("Horizontal_originalC") * speed;
+                deltaX = Input.GetAxis("Horizontal_originalK") * speed;
             }
             else
             {
-                deltaX = Input.GetAxis("Horizontal joyconR joystick") * speed;
+                deltaX = Input.GetAxis("Horizontal joyconL joystick") * speed;
             }
 
             _anim.SetFloat("speed", Mathf.Abs(deltaX));
@@ -57,18 +85,27 @@ public class MovementConnor : MonoBehaviour
                 transform.localScale = new Vector3(Mathf.Sign(deltaX), 1f, 1f);
             }
             Vector2 movement = new Vector2(deltaX, _body.velocity.y);
-            _body.velocity = movement;  
+            _body.velocity = movement;
         }
 
-        if (m_Grounded && !m_onIce && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Joystick2Button0)))
+        if (jumpAllowed && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
         {
             _anim.SetTrigger("jumping");
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }    
+        }
+        
 
-        if(m_onIce){
+       /* if (m_onIce)
+        {
             Debug.Log("estoy en hielo xdd");
-        }    
+        }
+        if (m_Grounded)
+        {
+            Debug.Log("estoy en el suelo ");
+        }
+        if(m_onIceDiagonal){
+            Debug.Log("estoy en rampa de hielo");
+        }*/
     }
 
     private void FixedUpdate() {
@@ -100,7 +137,16 @@ public class MovementConnor : MonoBehaviour
 				if (!wasOnIce)
 					OnLandEvent.Invoke();
 			}
+            if (collidersIce[i].gameObject.tag == "DiagonalGroundIce")
+            {
+                m_onIceDiagonal = true;
+            }
 		}
+    }
+
+     private bool isMoving() //esto se tiene que mejorar
+    {
+        return _body.velocity.magnitude > 0.3;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

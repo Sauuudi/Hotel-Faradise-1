@@ -6,9 +6,8 @@ public class Clavo : MonoBehaviour
 {
     public float speed = 20f;
 	public Rigidbody2D rb;
-	//public GameObject clavadoEffect;
     public GameObject nailedPrefab;
-    public GameObject nailedObjectPrefab;
+    public GameObject clavoSaltoPrefab;
     
     public int lifeTime;
 
@@ -22,7 +21,7 @@ public class Clavo : MonoBehaviour
         pistola = (PistolaClavos) go.GetComponent(typeof(PistolaClavos));
 
         rb.velocity = transform.right * speed;   
-        Invoke("DestroyProjectile", lifeTime);
+        Invoke("DestroyProjectile", lifeTime);       
     }
 
     private void Update() {
@@ -30,10 +29,9 @@ public class Clavo : MonoBehaviour
     }
 
     void OnTriggerEnter2D (Collider2D hitInfo)
-	{   
+	{  
         if (hitInfo.tag.Equals("IceWall"))
         {
-            //Instantiate(clavadoEffect, transform.position, transform.rotation); //for the effect of collision do after
             GameObject clone = Instantiate(nailedPrefab, transform.position, transform.rotation);
             
             pistola.saveNailed(clone);
@@ -45,9 +43,10 @@ public class Clavo : MonoBehaviour
             }   
         }
 
-        if (hitInfo.tag.Equals("AQUI EL TAG DE LOS oBJEToS MOVILES")) 
+        
+        if (hitInfo.tag.Equals("DiagonalGroundIce")) 
         {
-            GameObject clone = Instantiate(nailedObjectPrefab, transform.position, transform.rotation);
+            GameObject clone = Instantiate(clavoSaltoPrefab, transform.position, transform.rotation);
             
             pistola.saveNailedObject(clone);
             bool delete = pistola.nailAddObject();
@@ -55,8 +54,9 @@ public class Clavo : MonoBehaviour
             if(delete){
                 pistola.borrarOldestNailedObject();
                
-            }   
+            }  
         }
+
 		
         Destroy(gameObject);
 	}
