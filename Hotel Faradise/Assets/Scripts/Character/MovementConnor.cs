@@ -70,13 +70,13 @@ public class MovementConnor : MonoBehaviour
         if (movementAllowed)
         {
             float deltaX = 0f;
-            if (Mathf.Abs(Input.GetAxis("Horizontal_originalK") * speed) > Mathf.Abs(Input.GetAxis("Horizontal joyconL joystick") * speed))
+            if (Mathf.Abs(Input.GetAxis("Horizontal_originalC") * speed) > Mathf.Abs(Input.GetAxis("Horizontal joyconR joystick") * speed))
             {
-                deltaX = Input.GetAxis("Horizontal_originalK") * speed;
+                deltaX = Input.GetAxis("Horizontal_originalC") * speed;
             }
             else
             {
-                deltaX = Input.GetAxis("Horizontal joyconL joystick") * speed;
+                deltaX = Input.GetAxis("Horizontal joyconR joystick") * speed;
             }
 
             _anim.SetFloat("speed", Mathf.Abs(deltaX));
@@ -88,7 +88,7 @@ public class MovementConnor : MonoBehaviour
             _body.velocity = movement;
         }
 
-        if (jumpAllowed && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
+        if (jumpAllowed && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Joystick2Button0)))
         {
             _anim.SetTrigger("jumping");
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
