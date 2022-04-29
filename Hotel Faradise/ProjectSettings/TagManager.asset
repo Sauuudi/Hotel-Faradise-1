@@ -17,6 +17,7 @@ TagManager:
   - DiagonalGroundIce
   - ClavoSalto
   - groundCheck
+  - hangingPlatform
   layers:
   - Default
   - TransparentFX

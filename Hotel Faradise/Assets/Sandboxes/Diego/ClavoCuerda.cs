@@ -9,7 +9,9 @@ public class ClavoCuerda : MonoBehaviour
     private Transform selected;
     public bool isRoped = false;
     public bool isDoubleRoped = false;
-    
+    public GameObject hangingPlatform;
+    public bool isHangingPlatform;
+
     private void Awake()
     {
         selected = transform.Find("Selected");

@@ -16,7 +16,8 @@ public class Kate1 : MonoBehaviour
     [HideInInspector]
     public Transform attachedTo;
     private GameObject disregard = null;
-
+    private bool isHangingPlatform = false;
+    private GameObject theHangingPlatform = null;
 
     [Range(2, 4)]
     public int MaxClavos = 2;
@@ -118,6 +119,11 @@ public class Kate1 : MonoBehaviour
             if (attached)
             {
                 Detach();
+                if (isHangingPlatform) {
+                    theHangingPlatform.GetComponent<movePlatformDown>().modifyWeight(10.0f);
+                    isHangingPlatform = false;
+                }
+                
             }
         }
     }
@@ -280,6 +286,17 @@ public class Kate1 : MonoBehaviour
                     {
                         hangingOn = col.gameObject.transform.parent.gameObject;
                         Attach(col.gameObject.GetComponent<Rigidbody2D>());
+                        GameObject clavo = col.gameObject.GetComponent<RopeSegment>().connectedAbove;
+                        while (!clavo.gameObject.GetComponent<RopeSegment>().connectedAbove.CompareTag("Clavo"))
+                        {
+                            clavo = clavo.gameObject.GetComponent<RopeSegment>().connectedAbove;
+                        }
+                        if (clavo.gameObject.GetComponent<RopeSegment>().connectedAbove.GetComponentInChildren<ClavoCuerda>().isHangingPlatform)
+                        {
+                            isHangingPlatform = true;
+                            theHangingPlatform = clavo.gameObject.GetComponent<RopeSegment>().connectedAbove.GetComponentInChildren<ClavoCuerda>().hangingPlatform;
+                            theHangingPlatform.GetComponent<movePlatformDown>().modifyWeight(-10.0f);
+                        }
                     }
                 }
             }

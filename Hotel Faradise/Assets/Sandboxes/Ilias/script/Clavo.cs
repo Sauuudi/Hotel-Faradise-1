@@ -8,7 +8,6 @@ public class Clavo : MonoBehaviour
 	public Rigidbody2D rb;
     public GameObject nailedPrefab;
     public GameObject clavoSaltoPrefab;
-    
     public int lifeTime;
 
     private PistolaClavos pistola;
@@ -30,10 +29,10 @@ public class Clavo : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D hitInfo)
 	{  
-        if (hitInfo.tag.Equals("IceWall"))
+        if (hitInfo.gameObject.CompareTag("IceWall"))
         {
             GameObject clone = Instantiate(nailedPrefab, transform.position, transform.rotation);
-            
+            clone.GetComponentInChildren<ClavoCuerda>().isHangingPlatform = false;
             pistola.saveNailed(clone);
             bool delete = pistola.nailAdd();
 
@@ -41,6 +40,24 @@ public class Clavo : MonoBehaviour
                 pistola.borrarOldestNailed();
                
             }   
+        } else if(hitInfo.gameObject.CompareTag("hangingPlatform"))
+        {
+            GameObject clone = Instantiate(nailedPrefab, transform.position, transform.rotation);
+            GameObject emptyChild = new GameObject();
+            emptyChild.transform.parent = hitInfo.transform;
+            clone.transform.parent = emptyChild.transform;
+
+
+            clone.GetComponentInChildren<ClavoCuerda>().isHangingPlatform = true;
+            clone.GetComponentInChildren<ClavoCuerda>().hangingPlatform = hitInfo.gameObject;
+            pistola.saveNailed(clone);
+            bool delete = pistola.nailAdd();
+
+            if (delete)
+            {
+                pistola.borrarOldestNailed();
+
+            }
         }
 
         
