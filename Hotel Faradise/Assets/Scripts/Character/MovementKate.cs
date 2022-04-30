@@ -8,6 +8,8 @@ public class MovementKate : MonoBehaviour
     public float weight = 0f;
     public float speed = 2f;
     public float jumpForce = 5.0f;
+    public float gravityScale = 10;
+    public float fallingGravityScale = 40;
     public float iceSpeed;
 
     private Rigidbody2D _body;
@@ -26,6 +28,7 @@ public class MovementKate : MonoBehaviour
     private Vector3 lastPos;
     public UnityEvent OnLandEvent;
     public UnityEvent OnIceEvent;
+    
 
     void Start()
     {
@@ -96,6 +99,15 @@ public class MovementKate : MonoBehaviour
         {
             _anim.SetTrigger("jumping");
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+
+        if(_body.velocity.y >= 0)
+        {
+            _body.gravityScale = gravityScale;
+        }
+        else if (_body.velocity.y < 0)
+        {
+            _body.gravityScale = fallingGravityScale;
         }
         
 

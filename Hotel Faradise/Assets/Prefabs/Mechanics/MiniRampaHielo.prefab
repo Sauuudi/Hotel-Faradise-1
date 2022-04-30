@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8853872025111858098}
   - component: {fileID: 8853872025111858125}
   - component: {fileID: 8853872025111858124}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MiniRampaHielo
-  m_TagString: Untagged
+  m_TagString: DiagonalGroundIce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,6 +110,4 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -6.7380457, y: 6.959185}
       - {x: -6.8125, y: -6.71875}
-      - {x: 6.8125, y: -6.71875}
-      - {x: 6.8125, y: -6.4938607}
-      - {x: 3.4288018, y: -3.1039047}
+      - {x: 7.0064845, y: -6.586732}
