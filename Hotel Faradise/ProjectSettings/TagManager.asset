@@ -18,6 +18,7 @@ TagManager:
   - ClavoSalto
   - groundCheck
   - hangingPlatform
+  - Ladder
   layers:
   - Default
   - TransparentFX

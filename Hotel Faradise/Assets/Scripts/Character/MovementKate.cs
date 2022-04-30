@@ -25,6 +25,8 @@ public class MovementKate : MonoBehaviour
     private bool m_onIceDiagonal;
     private bool movementAllowed;
     private bool jumpAllowed;
+    [SerializeField] private bool onLadder = false;
+    private bool climbing = false;
     private Vector3 lastPos;
     public UnityEvent OnLandEvent;
     public UnityEvent OnIceEvent;
@@ -95,17 +97,34 @@ public class MovementKate : MonoBehaviour
             _body.velocity = movement;
         }
 
-        if (jumpAllowed && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
+        if (onLadder && Input.GetKey(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
+            Debug.Log("INSIDEEEEEEE");
+            if (!climbing)
+            {
+                climbing = true;
+                _body.velocity = new Vector2(0, 0);
+            }
+            
+            _body.gravityScale = 0;
+            
+            transform.position = new Vector3(transform.position.x, transform.position.y + 0.02f, transform.position.z);
+        } else
+        {
+            climbing = false;
+        }
+        if (!climbing && jumpAllowed && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
+        {
+            Debug.Log("AAAAAAAAAA");
             _anim.SetTrigger("jumping");
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
-        if(_body.velocity.y >= 0)
+        if(_body.velocity.y >= 0 && !climbing)
         {
             _body.gravityScale = gravityScale;
         }
-        else if (_body.velocity.y < 0)
+        else if (_body.velocity.y < 0 && !climbing)
         {
             _body.gravityScale = fallingGravityScale;
         }
@@ -178,6 +197,11 @@ public class MovementKate : MonoBehaviour
         else {
             _body.gravityScale = 3;
         }
+
+        if (collision.CompareTag("Ladder"))
+        {
+            onLadder = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -185,6 +209,11 @@ public class MovementKate : MonoBehaviour
         if (collision.CompareTag("0Gravity"))
         {
             _body.gravityScale = 3;
+        }
+
+        if (collision.CompareTag("Ladder"))
+        {
+            onLadder = false;
         }
     }
 
