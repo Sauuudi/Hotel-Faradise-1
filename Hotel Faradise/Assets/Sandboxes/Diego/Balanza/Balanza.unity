@@ -857,6 +857,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   jumpForce: 13
+  gravityScale: 10
+  fallingGravityScale: 40
   iceSpeed: 20
   m_WhatIsGround:
     serializedVersion: 2
@@ -1245,9 +1247,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558b3e218bcd2954c9ec4264a3155a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 1
-  speed: 9
-  jumpForce: 15
+  weight: 0
+  speed: 5
+  jumpForce: 18
+  gravityScale: 4
+  fallingGravityScale: 7
   iceSpeed: 20
   m_WhatIsGround:
     serializedVersion: 2
