@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 170973427954582169}
   - component: {fileID: 170973427954582168}
   - component: {fileID: 170973427954582175}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FallingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 170973427954582174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.5596337, y: -0.046215296, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.84885424, y: 1.0037534, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -69,10 +69,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1566299195
+  m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6564289030122953259, guid: b498773989c077b48b8f6a7abf5fbf85, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8f7d893d59bcda84d9aaae6a2cb64102, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,16 +96,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.007247925, y: 0.043695703}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.1, y: 1.28}
+    oldSize: {x: 3, y: 1}
     newSize: {x: 5.1, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.1, y: 1.28}
+  m_Size: {x: 2.8651195, y: 0.9013039}
   m_EdgeRadius: 0
