@@ -99,7 +99,6 @@ public class MovementKate : MonoBehaviour
 
         if (onLadder && Input.GetKey(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Joystick1Button0))
         {
-            Debug.Log("INSIDEEEEEEE");
             if (!climbing)
             {
                 climbing = true;
@@ -115,7 +114,6 @@ public class MovementKate : MonoBehaviour
         }
         if (!climbing && jumpAllowed && (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Joystick1Button0)))
         {
-            Debug.Log("AAAAAAAAAA");
             _anim.SetTrigger("jumping");
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }

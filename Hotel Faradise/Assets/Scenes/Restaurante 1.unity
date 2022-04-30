@@ -444,6 +444,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9026693958785034216, guid: cd8b939cd17a9d44fa0ef7b33247e3c1, type: 3}
+      propertyPath: jumpForce
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 9026693958785034219, guid: cd8b939cd17a9d44fa0ef7b33247e3c1, type: 3}
       propertyPath: m_Name
       value: Player_Kate
@@ -772,6 +776,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 52631999959151514, guid: c783bc0a173a0ec46b25f38ef8962dbc, type: 3}
+      propertyPath: jumpForce
+      value: 28
+      objectReference: {fileID: 0}
     - target: {fileID: 52631999959151515, guid: c783bc0a173a0ec46b25f38ef8962dbc, type: 3}
       propertyPath: m_Name
       value: Player_Connor
