@@ -7,11 +7,14 @@ public class mainMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     public void PlayGame(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In,"Intro"));
     }
 
     public void QuitGame(){
-        Debug.Log("quit"); 
         Application.Quit();
+    }
+
+    public void IntroEnd(){
+        StartCoroutine(GameObject.FindObjectOfType<SceneFader>().FadeAndLoadScene(SceneFader.FadeDirection.In,"Recepcion"));
     }
 }

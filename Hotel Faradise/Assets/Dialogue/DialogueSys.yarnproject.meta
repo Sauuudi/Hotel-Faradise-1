@@ -9,6 +9,7 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 053561912b1654d80a424bb0696a74ae, type: 3}
   sourceScripts:
+  - {fileID: 6391573757903218779, guid: 4401a22fc72689e469ca6f121d0825ec, type: 3}
   - {fileID: 6391573757903218779, guid: a333200ab15bd8341a4e21597ac33ae7, type: 3}
   compileErrors: []
   serializedDeclarations: []
