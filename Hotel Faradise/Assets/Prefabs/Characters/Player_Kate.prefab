@@ -334,7 +334,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weight: 0
   speed: 5
-  jumpForce: 16
+  jumpForce: 18
+  gravityScale: 4
+  fallingGravityScale: 7
   iceSpeed: 20
   m_WhatIsGround:
     serializedVersion: 2

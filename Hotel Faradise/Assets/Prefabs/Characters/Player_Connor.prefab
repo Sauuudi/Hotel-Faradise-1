@@ -210,7 +210,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 52631999959151515}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: a72700ff38b5f8748855c0aa853dc9a5, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -275,7 +275,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpForce: 28
+  jumpForce: 32
+  gravityScale: 4
+  fallingGravityScale: 7
   iceSpeed: 8
   m_WhatIsGround:
     serializedVersion: 2

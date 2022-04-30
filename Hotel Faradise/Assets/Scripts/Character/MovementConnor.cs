@@ -7,6 +7,8 @@ public class MovementConnor : MonoBehaviour
 {
     public float speed = 2f; 
     public float jumpForce = 5.0f;
+    public float gravityScale = 10;
+    public float fallingGravityScale = 40;
     public float iceSpeed;
 
     private Rigidbody2D _body;
@@ -92,6 +94,15 @@ public class MovementConnor : MonoBehaviour
         {
             _anim.SetTrigger("jumping");
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+
+        if(_body.velocity.y >= 0)
+        {
+            _body.gravityScale = gravityScale;
+        }
+        else if (_body.velocity.y < 0)
+        {
+            _body.gravityScale = fallingGravityScale;
         }
         
 

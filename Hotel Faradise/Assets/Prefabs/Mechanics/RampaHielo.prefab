@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3765633349209256195}
   - component: {fileID: 3765633349209256317}
   - component: {fileID: 3765633349209256316}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RampaHielo
-  m_TagString: Untagged
+  m_TagString: DiagonalGroundIce
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
