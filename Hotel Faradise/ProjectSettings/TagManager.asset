@@ -20,6 +20,7 @@ TagManager:
   - hangingPlatform
   - Ladder
   - openDoor
+  - Button
   layers:
   - Default
   - TransparentFX

@@ -59,10 +59,7 @@ public class Clavo : MonoBehaviour
                 pistola.borrarOldestNailed();
 
             }
-        }
-
-        
-        if (hitInfo.tag.Equals("DiagonalGroundIce")) 
+        } else if (hitInfo.gameObject.CompareTag("DiagonalGroundIce")) 
         {
             GameObject clone = Instantiate(clavoSaltoPrefab, transform.position, transform.rotation);
             
@@ -73,6 +70,9 @@ public class Clavo : MonoBehaviour
                 pistola.borrarOldestNailedObject();
                
             }  
+        } else if (hitInfo.gameObject.CompareTag("Button"))
+        {
+            hitInfo.gameObject.GetComponent<buttonDoor>().activatedButton();
         }
 
 		

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3288373345207459533}
   m_Layer: 0
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3288373345207459528}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3, y: -4.48, z: 13.85189}
+  m_LocalPosition: {x: 3.3, y: -4.95, z: 13.85189}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3288373346776836094}
@@ -150,9 +150,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 3288373346286054925}
-  tagName: Player
+  tagName: Button
   speed: 1
   upPosition: 1.5
+  timeToMove: 0.3
 --- !u!1 &3288373346286054925
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3288373346286054925}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.2714653, y: -2.9776294, z: 13.85189}
+  m_LocalPosition: {x: 5.2714653, y: -3.62, z: 13.85189}
   m_LocalScale: {x: 1, y: 4.1304, z: 1}
   m_Children: []
   m_Father: {fileID: 3288373346776836094}
