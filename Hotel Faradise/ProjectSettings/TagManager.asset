@@ -21,6 +21,7 @@ TagManager:
   - Ladder
   - openDoor
   - Button
+  - carambano
   layers:
   - Default
   - TransparentFX

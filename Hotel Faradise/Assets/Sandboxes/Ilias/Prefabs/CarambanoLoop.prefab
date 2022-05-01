@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7105102821510460504}
   - component: {fileID: 7105102821510460511}
   - component: {fileID: 7105102821510460507}
-  m_Layer: 15
+  m_Layer: 14
   m_Name: CarambanoLoop
   m_TagString: Untagged
   m_Icon: {fileID: 0}

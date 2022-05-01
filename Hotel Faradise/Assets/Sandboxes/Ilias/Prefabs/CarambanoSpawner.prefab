@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f964c3895906147a34e9f4013b6bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 20
+  spawnTime: 2
   carambanoPrefab: {fileID: 7105102821510460509, guid: f9384025f8795f8419d4f42c8847787e, type: 3}
 --- !u!212 &4207768229900122332
 SpriteRenderer:
@@ -83,10 +83,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_SortingLayerID: 1995007411
+  m_SortingLayer: 4
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -2373852026420131988, guid: 2d49f06b2300a9c43a07529ecd29cc20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
