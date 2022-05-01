@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: c436cc41e4ec88346ae83026196cde8d
@@ -24,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Nivel Maletas.unity
     guid: 9bfc59a4b30ac52429ede201a34a64ff
   - enabled: 1
-    path: Assets/Scenes/Restaurante.unity
-    guid: dc6a2cb7cc3d71b41991b6889e786637
+    path: Assets/Scenes/Restaurante 1.unity
+    guid: 4309188bc445c864292a0f095e225e26
   m_configObjects: {}
