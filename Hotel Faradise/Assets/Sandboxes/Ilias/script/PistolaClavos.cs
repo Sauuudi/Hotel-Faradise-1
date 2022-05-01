@@ -14,6 +14,7 @@ public class PistolaClavos : MonoBehaviour
     private int nailObjectCount;
     public int maximumNails;
     public int maximumJumpNails;
+    public Transform mirilla;
     
     private List<GameObject> nailedList = new List<GameObject>();
     public List<GameObject> nailedListJump = new List<GameObject>();
@@ -32,14 +33,21 @@ public class PistolaClavos : MonoBehaviour
     void Update()
     {
         // pa girar la pistola con raton
-        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+        
 
         if ( Input.GetKeyDown(KeyCode.Mouse1))
 		{
-			Shoot();
-		}
+            Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+            Shoot();
+		} else if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+        {
+            Vector3 difference = mirilla.position - transform.position;
+            float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+            Shoot();
+        }
     }
 
    

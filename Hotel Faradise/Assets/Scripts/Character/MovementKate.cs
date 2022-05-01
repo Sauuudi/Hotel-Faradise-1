@@ -11,6 +11,7 @@ public class MovementKate : MonoBehaviour
     public float gravityScale = 10;
     public float fallingGravityScale = 40;
     public float iceSpeed;
+    public GameObject gunSight;
 
     private Rigidbody2D _body;
     private Animator _anim;
@@ -25,7 +26,10 @@ public class MovementKate : MonoBehaviour
     private bool m_onIceDiagonal;
     private bool movementAllowed;
     private bool jumpAllowed;
-    [SerializeField] private bool onLadder = false;
+    private bool aiming = false;
+    [SerializeField] private float rotateGunsight = 0.0f;
+    [SerializeField] private float lookingAtRight = 1.0f;
+    private bool onLadder = false;
     private bool climbing = false;
     private Vector3 lastPos;
     public UnityEvent OnLandEvent;
@@ -52,8 +56,29 @@ public class MovementKate : MonoBehaviour
             OnIceEvent = new UnityEvent();
     }
     async void Update()
-    {   
-        if(!m_Grounded && !m_onIceDiagonal && !m_onIce){
+    {
+        if (Input.GetKey(KeyCode.Joystick1Button5))
+        {
+            aiming = true;
+            gunSight.SetActive(true);
+            float verticalAxis = Input.GetAxis("Vertical joyconL joystick");
+            if(verticalAxis > 0)
+            {
+                rotateGunsight += 100f * Time.deltaTime;
+                if (rotateGunsight > 90) rotateGunsight = 90;
+            } else if(verticalAxis < 0)
+            {
+                rotateGunsight -= 100f * Time.deltaTime;
+                if (rotateGunsight < -90) rotateGunsight = -90;
+            }
+            gunSight.transform.rotation = Quaternion.Euler(0,0,rotateGunsight*lookingAtRight);
+        }
+        else
+        {
+            aiming = false;
+            gunSight.SetActive(false);
+        }
+        if (!m_Grounded && !m_onIceDiagonal && !m_onIce){
             movementAllowed = true;
             jumpAllowed = false;
         }
@@ -76,7 +101,7 @@ public class MovementKate : MonoBehaviour
             jumpAllowed = true;
         }
 
-        if (movementAllowed)
+        if (movementAllowed && !aiming)
         {
             float deltaX = 0f;
             if (Mathf.Abs(Input.GetAxis("Horizontal_originalK") * speed) > Mathf.Abs(Input.GetAxis("Horizontal joyconL joystick") * speed))
@@ -88,6 +113,8 @@ public class MovementKate : MonoBehaviour
                 deltaX = Input.GetAxis("Horizontal joyconL joystick") * speed;
             }
 
+            if (deltaX > 0) lookingAtRight = 1.0f;
+            else if (deltaX < 0) lookingAtRight = -1.0f;
             _anim.SetFloat("speed", Mathf.Abs(deltaX));
             if (!Mathf.Approximately(deltaX, 0f))
             {
@@ -97,7 +124,9 @@ public class MovementKate : MonoBehaviour
             _body.velocity = movement;
         }
 
-        if (onLadder && Input.GetKey(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Joystick1Button0))
+
+
+        if (onLadder && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Joystick1Button0)))
         {
             if (!climbing)
             {
