@@ -73,6 +73,7 @@ public class PistolaClavos : MonoBehaviour
     public void saveNailed(GameObject nailed)
     {
         nailedList.Add(nailed);
+        kate.activeClavos = nailedList;
     }
 
     public void borrarOldestNailed()
@@ -84,6 +85,7 @@ public class PistolaClavos : MonoBehaviour
             }
             
             nailedList.RemoveAt(0);
+        kate.activeClavos = nailedList;
     }
 
     public bool nailAddObject(){

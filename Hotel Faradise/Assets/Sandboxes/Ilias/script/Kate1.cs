@@ -23,7 +23,9 @@ public class Kate1 : MonoBehaviour
     public int MaxClavos = 2;
     //[HideInInspector]
     public GameObject[] pulleySelected;
+    [HideInInspector]public List<GameObject> activeClavos = new List<GameObject>();
     private int clavosSelected = 0;
+    private int clavosGenerated = 0;
 
     public GameObject RopePrefab;
     public int lianaLength = 5;
@@ -43,6 +45,7 @@ public class Kate1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        clavosGenerated = activeClavos.Count;
         CheckKeyboardInputs();
         CheckPulleyInputs();
     }
@@ -65,7 +68,7 @@ public class Kate1 : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("r") && pulleySelected[0] != null)
+        if ((Input.GetKeyDown("r") || Input.GetKeyDown(KeyCode.Joystick1Button15)) && pulleySelected[0] != null)
         {
             GameObject clavo0 = pulleySelected[0];
             if(clavo0 != null)
@@ -114,7 +117,7 @@ public class Kate1 : MonoBehaviour
             Slide(-1);
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Joystick1Button0))
         {
             if (attached)
             {
@@ -224,7 +227,7 @@ public class Kate1 : MonoBehaviour
             if (hit.collider != null && hit.transform.gameObject.tag == "Clavo")
             {
                 GameObject current = hit.transform.gameObject;
-                if (checkSelected(current))
+                if (checkSelected(current, true))
                 {
                     current.GetComponent<ClavoCuerda>().Deselect();
                     clavosSelected--;
@@ -235,30 +238,93 @@ public class Kate1 : MonoBehaviour
                     pulleySelected[clavosSelected].GetComponent<ClavoCuerda>().Select();
                     clavosSelected++;
                 }
-            }          
+            }
+        } else if (Input.GetKeyDown(KeyCode.Joystick1Button4))
+        {
+            int caso = 0;
+            switch (clavosGenerated)
+            {
+                case 1:
+                    GameObject clavoToSelect = activeClavos[0].transform.GetChild(0).gameObject;
+                    if (checkSelected(clavoToSelect, true))
+                    {
+                        caso = 1;
+                        clavoToSelect.GetComponent<ClavoCuerda>().Deselect();
+                        clavosSelected--;
+                    }
+                    else if (clavosSelected < MaxClavos)
+                    {
+                        caso = 2;
+                        pulleySelected[clavosSelected] = clavoToSelect;
+                        pulleySelected[clavosSelected].GetComponentInChildren<ClavoCuerda>().Select();
+                        clavosSelected++;
+                    }
+                    break;
+                case 2:
+                    GameObject clavoToSelect1 = activeClavos[0].transform.GetChild(0).gameObject;
+                    GameObject clavoToSelect2 = activeClavos[1].transform.GetChild(0).gameObject;
+                    Debug.Log(clavoToSelect1.name);
+                    if (checkSelected(clavoToSelect1, false))
+                    {  
+                        if (checkSelected(clavoToSelect2, false))
+                        {
+                            checkSelected(clavoToSelect1, true);
+                            checkSelected(clavoToSelect2, true);
+                            caso = 3;
+                            clavoToSelect1.GetComponent<ClavoCuerda>().Deselect();
+                            clavoToSelect2.GetComponent<ClavoCuerda>().Deselect();
+                            clavosSelected--;
+                            clavosSelected--;
+                        }
+                        else
+                        {
+                            caso = 4;
+                            pulleySelected[clavosSelected] = clavoToSelect2;
+                            pulleySelected[clavosSelected].GetComponentInChildren<ClavoCuerda>().Select();
+                            checkSelected(clavoToSelect1, true);
+                            clavoToSelect1.GetComponent<ClavoCuerda>().Deselect();
+                        }
+                        
+                    } else if (clavosSelected < MaxClavos)
+                    {
+                        caso = 5;
+                        pulleySelected[clavosSelected] = clavoToSelect1;
+                        pulleySelected[clavosSelected].GetComponentInChildren<ClavoCuerda>().Select();
+                        clavosSelected++;
+                    }
+                    break;
+
+            }
+
+        
+        Debug.Log("Caso: " + caso);
+        Debug.Log("Clavos Selected: " + clavosSelected);
+        Debug.Log("Clavos Generated: " + clavosGenerated);
         }
     }
-
-    bool checkSelected(GameObject clavo)
+bool checkSelected(GameObject clavo, bool toReset)
     {
         for (int i = 0; i < clavosSelected; i++)
         {
             if (pulleySelected[i] == clavo)
             {
-                pulleySelected[i] = null;
-                for (int j = i; j < MaxClavos - 1; j++)
+                if (toReset)
                 {
-                    if (pulleySelected[j + 1] == null)
+                    pulleySelected[i] = null;
+                    for (int j = i; j < MaxClavos - 1; j++)
                     {
-                        pulleySelected[j] = null;
-                        break;
+                        if (pulleySelected[j + 1] == null)
+                        {
+                            pulleySelected[j] = null;
+                            break;
+                        }
+                        else
+                        {
+                            pulleySelected[j] = pulleySelected[j + 1];
+                        }
                     }
-                    else
-                    {
-                        pulleySelected[j] = pulleySelected[j + 1];
-                    }
+                    pulleySelected[MaxClavos - 1] = null;
                 }
-                pulleySelected[MaxClavos - 1] = null;
                 return true;
             }
         }
@@ -267,7 +333,7 @@ public class Kate1 : MonoBehaviour
 
     public void DecreaseSelected(GameObject clavo){ 
 
-        if(checkSelected(clavo)){
+        if(checkSelected(clavo,true)){
             clavosSelected--;            
         }
     }
