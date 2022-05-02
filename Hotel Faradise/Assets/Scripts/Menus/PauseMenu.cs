@@ -54,7 +54,6 @@ public class PauseMenu : MonoBehaviour {
             }
             else
             {
-                Debug.Log("settings opened");
                 if (Input.GetAxis("Vertical joyconR joystick") != 0 || Input.GetAxis("Vertical joyconL joystick") != 0)
                 {
                     float verticalAxis1 = Input.GetAxisRaw("Vertical joyconR joystick");
