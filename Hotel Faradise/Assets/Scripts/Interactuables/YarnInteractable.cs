@@ -26,7 +26,7 @@ public class YarnInteractable : MonoBehaviour
     }
 
     public void DisableConversation(){
-
+        interactable=false;
     }
 
     // whether this character should be enabled right now
@@ -39,5 +39,15 @@ public class YarnInteractable : MonoBehaviour
             // then run this character's conversation
             StartConversation();
         }
+    }
+
+    public void OnTriggerEnter2D(Collider2D col){
+       // if(Toca a Kate o connor){
+            if (interactable && !dialogueRunner.IsDialogueRunning) {
+                // then run this character's conversation
+                StartConversation();
+                DisableConversation();
+            }
+       // }
     }
 }
