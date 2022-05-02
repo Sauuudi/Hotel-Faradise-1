@@ -17,7 +17,7 @@ public class PistolaClavos : MonoBehaviour
     public Transform mirilla;
     
     private List<GameObject> nailedList = new List<GameObject>();
-    public List<GameObject> nailedListJump = new List<GameObject>();
+    private List<GameObject> nailedListJump = new List<GameObject>();
     public Kate1 kate;
 
     

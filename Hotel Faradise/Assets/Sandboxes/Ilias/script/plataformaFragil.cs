@@ -40,6 +40,7 @@ public class plataformaFragil : MonoBehaviour
     void DropPlatform(){
         rb.isKinematic = false;
         bc.enabled = false;
+        transform.GetChild(0).gameObject.SetActive(false);
 
     }
     

@@ -60,7 +60,7 @@ public class Clavo : MonoBehaviour
 
             }
         } else if (hitInfo.gameObject.CompareTag("DiagonalGroundIce")) 
-        {
+        { Debug.Log("se creara?");
             GameObject clone = Instantiate(clavoSaltoPrefab, transform.position, transform.rotation);
             
             pistola.saveNailedObject(clone);

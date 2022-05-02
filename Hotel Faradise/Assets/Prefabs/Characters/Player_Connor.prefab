@@ -291,9 +291,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   m_GroundCheck: {fileID: 52631999943173925}
-  m_Grounded: 0
-  m_onIce: 0
-  m_onIceDiagonal: 0
   rotateGunsight: 0
   lookingAtRight: 1
   OnLandEvent:
@@ -597,7 +594,6 @@ MonoBehaviour:
   firePoint: {fileID: 8074655015304688861}
   bulletPrefab: {fileID: 5311316828339200940, guid: 1ec5e7b9fd87b114ab4e1e68e7b1057a, type: 3}
   maximumNails: 2
-  maximumJumpNails: 0
+  maximumJumpNails: 2
   mirilla: {fileID: 8283109193585953749}
-  nailedListJump: []
   kate: {fileID: 9026693958785034217, guid: cd8b939cd17a9d44fa0ef7b33247e3c1, type: 3}
