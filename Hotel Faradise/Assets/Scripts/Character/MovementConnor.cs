@@ -25,7 +25,8 @@ public class MovementConnor : MonoBehaviour
     private bool m_onIceDiagonal;
     private bool movementAllowed;
     private bool jumpAllowed;
-    private bool aiming = false;
+    private bool aiming = false;    
+    private bool first;
     [SerializeField] private float rotateGunsight = 0.0f;
     [SerializeField] private float lookingAtRight = 1.0f;
     private bool onLadder = false;
@@ -41,7 +42,10 @@ public class MovementConnor : MonoBehaviour
         _body = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _box = GetComponent<BoxCollider2D>();
-        iceSpeed = 20;
+        
+        movementAllowed = true;
+        jumpAllowed = true;
+        first = false;
     }
 
     private void Awake() {
@@ -121,6 +125,8 @@ public class MovementConnor : MonoBehaviour
             }
             else{
                 movement = new Vector2(last_speed, _body.velocity.y);
+                if(friccionHielo > 0.1f){friccionHielo = 0.1f;}
+                else if(friccionHielo < 0.01f){friccionHielo = 0.01f;}
                 if(last_speed > 0 ){last_speed = last_speed - friccionHielo;}
                 if(last_speed < 0 ){last_speed = last_speed + friccionHielo;}
                 Invoke("KeepMoving",(1f - friccionHielo));
