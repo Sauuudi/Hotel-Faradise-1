@@ -9,6 +9,8 @@ public class YarnInteractable : MonoBehaviour
     public string conversationStartNode;
     private DialogueRunner dialogueRunner;
     private bool isCurrentConversation;
+    private bool dialogueThrown = false;
+    public GameObject activateAfterDialogue = null;
     public void Start() {
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
     }
@@ -29,6 +31,11 @@ public class YarnInteractable : MonoBehaviour
         interactable=false;
     }
 
+    public void EnableConversation()
+    {
+        interactable = true;
+    }
+
     // whether this character should be enabled right now
     // (begins true, but may not always be true)
     private bool interactable = true; 
@@ -38,6 +45,7 @@ public class YarnInteractable : MonoBehaviour
         if (interactable && !dialogueRunner.IsDialogueRunning) {
             // then run this character's conversation
             StartConversation();
+            dialogueThrown = true;
         }
     }
 
@@ -47,7 +55,16 @@ public class YarnInteractable : MonoBehaviour
                 // then run this character's conversation
                 StartConversation();
                 DisableConversation();
-            }
+                dialogueThrown = true;
+        }
        // }
+    }
+
+    public void activateObjectAfterDialogue()
+    {
+        if(dialogueThrown && activateAfterDialogue != null)
+        {
+            activateAfterDialogue.SetActive(true);
+        }
     }
 }
