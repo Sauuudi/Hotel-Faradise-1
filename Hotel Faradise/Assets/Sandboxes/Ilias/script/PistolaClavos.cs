@@ -41,7 +41,7 @@ public class PistolaClavos : MonoBehaviour
             float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
             Shoot();
-		} else if (Input.GetKeyDown(KeyCode.Joystick1Button2))
+		} else if (Input.GetKeyDown(KeyCode.Joystick2Button4))
         {
             Vector3 difference = mirilla.position - transform.position;
             float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;

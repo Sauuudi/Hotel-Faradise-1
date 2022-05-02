@@ -10,6 +10,7 @@ public class MovementConnor : MonoBehaviour
     public float gravityScale = 10;
     public float fallingGravityScale = 40;
     public float iceSpeed;
+    public GameObject gunSight;
 
     private Rigidbody2D _body;
     private Animator _anim;
@@ -24,6 +25,9 @@ public class MovementConnor : MonoBehaviour
     private bool m_onIceDiagonal;
     private bool movementAllowed;
     private bool jumpAllowed;
+    private bool aiming = false;
+    [SerializeField] private float rotateGunsight = 0.0f;
+    [SerializeField] private float lookingAtRight = 1.0f;
     private bool onLadder = false;
     private bool climbing = false;
 
@@ -46,9 +50,32 @@ public class MovementConnor : MonoBehaviour
 			OnIceEvent = new UnityEvent();
     }
     void Update()
-    {   
-         
-        if(!m_Grounded && !m_onIceDiagonal && !m_onIce){
+    {
+        if (Input.GetKey(KeyCode.Joystick2Button5))
+        {
+            aiming = true;
+            _body.velocity = new Vector2(0, _body.velocity.y);
+            gunSight.SetActive(true);
+            float verticalAxis = Input.GetAxis("Vertical joyconR joystick");
+            if (verticalAxis > 0)
+            {
+                rotateGunsight += 100f * Time.deltaTime;
+                if (rotateGunsight > 90) rotateGunsight = 90;
+            }
+            else if (verticalAxis < 0)
+            {
+                rotateGunsight -= 100f * Time.deltaTime;
+                if (rotateGunsight < -90) rotateGunsight = -90;
+            }
+            gunSight.transform.rotation = Quaternion.Euler(0, 0, rotateGunsight * lookingAtRight);
+        }
+        else
+        {
+            aiming = false;
+            gunSight.SetActive(false);
+        }
+
+        if (!m_Grounded && !m_onIceDiagonal && !m_onIce){
             movementAllowed = true;
             jumpAllowed = false;
         }
@@ -71,7 +98,7 @@ public class MovementConnor : MonoBehaviour
             jumpAllowed = true;
         }
 
-        if (movementAllowed)
+        if (movementAllowed && !aiming)
         {
             float deltaX = 0f;
             if (Mathf.Abs(Input.GetAxis("Horizontal_originalC") * speed) > Mathf.Abs(Input.GetAxis("Horizontal joyconR joystick") * speed))
@@ -82,7 +109,8 @@ public class MovementConnor : MonoBehaviour
             {
                 deltaX = Input.GetAxis("Horizontal joyconR joystick") * speed;
             }
-
+            if (deltaX > 0) lookingAtRight = 1.0f;
+            else if (deltaX < 0) lookingAtRight = -1.0f;
             _anim.SetFloat("speed", Mathf.Abs(deltaX));
             if (!Mathf.Approximately(deltaX, 0f))
             {

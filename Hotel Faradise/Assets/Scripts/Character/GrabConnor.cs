@@ -11,17 +11,25 @@ public class GrabConnor : MonoBehaviour
     public float rayDistance;
     private GameObject boxTaken;
     private Rigidbody2D body;
+    private bool aiming = false;
     private void Start()
     {
         body = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
-        RaycastHit2D grabCheck = Physics2D.Raycast(_grabDetect.position, Vector2.right * transform.localScale, rayDistance);
+        if (Input.GetKey(KeyCode.Joystick2Button5))
+        {
+            aiming = true;
+        } else
+        {
+            aiming = false;
+        }
+            RaycastHit2D grabCheck = Physics2D.Raycast(_grabDetect.position, Vector2.right * transform.localScale, rayDistance);
 
         if(grabCheck.collider != null && grabCheck.collider.tag == "Box") //tag de objetos moviles
         {
-            if(Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.Joystick2Button2))
+            if(Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.Joystick2Button2) && !aiming)
             {
                 if (!grabbing)
                 {

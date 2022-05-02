@@ -11,7 +11,7 @@ public class MovementKate : MonoBehaviour
     public float gravityScale = 10;
     public float fallingGravityScale = 40;
     public float iceSpeed;
-    public GameObject gunSight;
+    //public GameObject gunSight;
 
     private Rigidbody2D _body;
     private Animator _anim;
@@ -26,9 +26,9 @@ public class MovementKate : MonoBehaviour
     private bool m_onIceDiagonal;
     private bool movementAllowed;
     private bool jumpAllowed;
-    private bool aiming = false;
+    /*private bool aiming = false;
     [SerializeField] private float rotateGunsight = 0.0f;
-    [SerializeField] private float lookingAtRight = 1.0f;
+    [SerializeField] private float lookingAtRight = 1.0f; */
     private bool onLadder = false;
     private bool climbing = false;
     private Vector3 lastPos;
@@ -57,6 +57,7 @@ public class MovementKate : MonoBehaviour
     }
     async void Update()
     {
+        /*
         if (Input.GetKey(KeyCode.Joystick1Button5))
         {
             aiming = true;
@@ -77,7 +78,7 @@ public class MovementKate : MonoBehaviour
         {
             aiming = false;
             gunSight.SetActive(false);
-        }
+        } */
         if (!m_Grounded && !m_onIceDiagonal && !m_onIce){
             movementAllowed = true;
             jumpAllowed = false;
@@ -101,7 +102,7 @@ public class MovementKate : MonoBehaviour
             jumpAllowed = true;
         }
 
-        if (movementAllowed && !aiming)
+        if (movementAllowed)
         {
             float deltaX = 0f;
             if (Mathf.Abs(Input.GetAxis("Horizontal_originalK") * speed) > Mathf.Abs(Input.GetAxis("Horizontal joyconL joystick") * speed))
@@ -113,8 +114,8 @@ public class MovementKate : MonoBehaviour
                 deltaX = Input.GetAxis("Horizontal joyconL joystick") * speed;
             }
 
-            if (deltaX > 0) lookingAtRight = 1.0f;
-            else if (deltaX < 0) lookingAtRight = -1.0f;
+            //if (deltaX > 0) lookingAtRight = 1.0f;
+            //else if (deltaX < 0) lookingAtRight = -1.0f;
             _anim.SetFloat("speed", Mathf.Abs(deltaX));
             if (!Mathf.Approximately(deltaX, 0f))
             {
