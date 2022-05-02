@@ -139,7 +139,7 @@ public class MovementConnor : MonoBehaviour
         }
 
 
-        if (onLadder && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Joystick2Button0)))
+        if (onLadder && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Joystick2Button0)) && Time.timeScale != 0)
         {
             if (!climbing)
             {
@@ -156,7 +156,7 @@ public class MovementConnor : MonoBehaviour
             climbing = false;
         }
 
-        if (!climbing && jumpAllowed && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Joystick2Button0)))
+        if (!climbing && jumpAllowed && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Joystick2Button0) && Time.timeScale != 0))
         {
             _anim.SetTrigger("jumping");
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
