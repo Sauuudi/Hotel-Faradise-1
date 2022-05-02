@@ -27,6 +27,7 @@ public class MovementKate : MonoBehaviour
     private bool movementAllowed;
     private bool jumpAllowed;
     private bool first;
+    private bool enRampa = false;
     /*private bool aiming = false;
     [SerializeField] private float rotateGunsight = 0.0f;
     [SerializeField] private float lookingAtRight = 1.0f; */
@@ -163,11 +164,11 @@ public class MovementKate : MonoBehaviour
             _body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
-        if(_body.velocity.y >= 0 && !climbing)
+        if(_body.velocity.y >= 0 && !climbing && !enRampa)
         {
             _body.gravityScale = gravityScale;
         }
-        else if (_body.velocity.y < 0 && !climbing)
+        else if (_body.velocity.y < 0 && !climbing && !enRampa)
         {
             _body.gravityScale = fallingGravityScale;
         }
@@ -236,9 +237,10 @@ public class MovementKate : MonoBehaviour
         if (collision.CompareTag("0Gravity"))
         {
             _body.gravityScale = 0;
+            enRampa = true;
         }
         else {
-            _body.gravityScale = 3;
+            _body.gravityScale = gravityScale;
         }
 
         if (collision.CompareTag("Ladder"))
@@ -251,7 +253,8 @@ public class MovementKate : MonoBehaviour
     {
         if (collision.CompareTag("0Gravity"))
         {
-            _body.gravityScale = 3;
+            _body.gravityScale = gravityScale;
+            enRampa = false;
         }
 
         if (collision.CompareTag("Ladder"))
