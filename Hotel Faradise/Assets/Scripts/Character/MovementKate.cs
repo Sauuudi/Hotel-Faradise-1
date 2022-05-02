@@ -5,12 +5,12 @@ using UnityEngine.Events;
 
 public class MovementKate : MonoBehaviour
 {
-    public float weight = 0f;
     public float speed = 2f;
     public float jumpForce = 5.0f;
     public float gravityScale = 10;
     public float fallingGravityScale = 40;
     public float friccionHielo = 0.02f;
+    public float timeSliding = 0.8f;
     //public GameObject gunSight;
 
     private Rigidbody2D _body;
@@ -95,6 +95,8 @@ public class MovementKate : MonoBehaviour
         }
         else if(!m_onIce){
             first = false;
+            movementAllowed = true;
+            jumpAllowed = true;
         }
         else {
             movementAllowed = true;
@@ -132,7 +134,7 @@ public class MovementKate : MonoBehaviour
                 else if(friccionHielo < 0.01f){friccionHielo = 0.01f;}
                 if(last_speed > 0 ){last_speed = last_speed - friccionHielo;}
                 if(last_speed < 0 ){last_speed = last_speed + friccionHielo;}
-                Invoke("KeepMoving",(1f - friccionHielo));
+                Invoke("KeepMoving",timeSliding);
                 
             }
             _body.velocity = movement;
@@ -223,9 +225,9 @@ public class MovementKate : MonoBehaviour
         }
     }
 
-    private bool isMoving() //esto se tiene que mejorar
-    {
-        return _body.velocity.magnitude > 0.3;
+    private void KeepMoving()
+    {   
+        first = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

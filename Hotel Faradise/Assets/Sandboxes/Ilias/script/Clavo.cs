@@ -30,7 +30,7 @@ public class Clavo : MonoBehaviour
     void OnTriggerEnter2D (Collider2D hitInfo)
 	{  
         Debug.Log("he chocado contra: " + hitInfo.tag);
-        if (hitInfo.gameObject.CompareTag("IceWall"))
+        if (hitInfo.gameObject.CompareTag("IceGround"))
         {
             GameObject clone = Instantiate(nailedPrefab, transform.position, transform.rotation);
             clone.GetComponentInChildren<ClavoCuerda>().isHangingPlatform = false;

@@ -281,7 +281,8 @@ MonoBehaviour:
   jumpForce: 32
   gravityScale: 4
   fallingGravityScale: 7
-  iceSpeed: 8
+  friccionHielo: 0.05
+  timeSliding: 0.8
   gunSight: {fileID: 4114058204467931827}
   m_WhatIsGround:
     serializedVersion: 2
@@ -290,6 +291,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   m_GroundCheck: {fileID: 52631999943173925}
+  m_Grounded: 0
+  m_onIce: 0
+  m_onIceDiagonal: 0
   rotateGunsight: 0
   lookingAtRight: 1
   OnLandEvent:
@@ -323,7 +327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454342471278105370}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.39, y: -0.35, z: 1}
+  m_LocalPosition: {x: 0.41, y: -0.35, z: 1}
   m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0}
   m_Children: []
   m_Father: {fileID: 52631999959151520}
@@ -369,12 +373,12 @@ SpriteRenderer:
   m_SortingLayerID: -1566299195
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: baf01f0053a011443af84431a893d821, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 15665d215235267419b9559a44fc8df7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.266667, y: 4.266667}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -596,4 +600,4 @@ MonoBehaviour:
   maximumJumpNails: 0
   mirilla: {fileID: 8283109193585953749}
   nailedListJump: []
-  kate: {fileID: 0}
+  kate: {fileID: 9026693958785034217, guid: cd8b939cd17a9d44fa0ef7b33247e3c1, type: 3}
