@@ -10,7 +10,7 @@ public class MovementKate : MonoBehaviour
     public float jumpForce = 5.0f;
     public float gravityScale = 10;
     public float fallingGravityScale = 40;
-    public float iceSpeed;
+    public float friccionHielo = 0.02f;
     //public GameObject gunSight;
 
     private Rigidbody2D _body;
@@ -26,14 +26,18 @@ public class MovementKate : MonoBehaviour
     private bool m_onIceDiagonal;
     private bool movementAllowed;
     private bool jumpAllowed;
+    private bool first;
     /*private bool aiming = false;
     [SerializeField] private float rotateGunsight = 0.0f;
     [SerializeField] private float lookingAtRight = 1.0f; */
     private bool onLadder = false;
     private bool climbing = false;
     private Vector3 lastPos;
+    private float last_speed;
     public UnityEvent OnLandEvent;
     public UnityEvent OnIceEvent;
+
+    Vector2 movement = new Vector2(0,0);
     
 
     void Start()
@@ -41,10 +45,10 @@ public class MovementKate : MonoBehaviour
         _body = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
         _box = GetComponent<BoxCollider2D>();
-        iceSpeed = 20;
         lastPos = transform.position;
         movementAllowed = true;
         jumpAllowed = true;
+        first = false;
     }
 
     private void Awake()
@@ -82,20 +86,15 @@ public class MovementKate : MonoBehaviour
         if (!m_Grounded && !m_onIceDiagonal && !m_onIce){
             movementAllowed = true;
             jumpAllowed = false;
+            first = false;
         }
         else if(m_onIceDiagonal){
             movementAllowed = false;
             jumpAllowed = false;
+            first = false;
         }
-        else if(m_onIce){//esta parte se tiene que mejorar
-            if(isMoving()){
-                movementAllowed = false;
-                jumpAllowed = false;
-            }
-            else{
-                movementAllowed = true;
-                jumpAllowed = true;
-            }
+        else if(!m_onIce){
+            first = false;
         }
         else {
             movementAllowed = true;
@@ -121,7 +120,21 @@ public class MovementKate : MonoBehaviour
             {
                 transform.localScale = new Vector3(Mathf.Sign(deltaX), 1f, 1f);
             }
-            Vector2 movement = new Vector2(deltaX, _body.velocity.y);
+            if(!m_onIce || first){
+                 movement = new Vector2(deltaX, _body.velocity.y);
+                 last_speed = movement.x;
+                 _body.velocity = movement;
+                 
+            }
+            else{
+                movement = new Vector2(last_speed, _body.velocity.y);
+                if(friccionHielo > 0.1f){friccionHielo = 0.1f;}
+                else if(friccionHielo < 0.01f){friccionHielo = 0.01f;}
+                if(last_speed > 0 ){last_speed = last_speed - friccionHielo;}
+                if(last_speed < 0 ){last_speed = last_speed + friccionHielo;}
+                Invoke("KeepMoving",(1f - friccionHielo));
+                
+            }
             _body.velocity = movement;
         }
 
