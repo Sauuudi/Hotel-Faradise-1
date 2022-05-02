@@ -121,7 +121,7 @@ public class Kate1 : MonoBehaviour
             Slide(-1);
         }
 
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Joystick1Button0))
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Joystick1Button0))
         {
             if (attached)
             {
@@ -130,7 +130,7 @@ public class Kate1 : MonoBehaviour
                     theHangingPlatform.GetComponent<movePlatformDown>().modifyWeight(10.0f);
                     isHangingPlatform = false;
                 }
-              rb.AddForce(new Vector2(jumpDirection,0) * 250f, ForceMode2D.Impulse);  
+              rb.AddForce(new Vector2(jumpDirection,1) * 16f, ForceMode2D.Impulse);  
             }
         }
     }
