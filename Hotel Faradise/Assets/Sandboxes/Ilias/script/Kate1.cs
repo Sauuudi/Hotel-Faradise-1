@@ -121,7 +121,7 @@ public class Kate1 : MonoBehaviour
             Slide(-1);
         }
 
-        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Joystick1Button0))
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Joystick1Button2))
         {
             if (attached)
             {
