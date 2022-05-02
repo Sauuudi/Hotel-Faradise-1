@@ -90,7 +90,7 @@ public class MovementKate : MonoBehaviour
         }
         else if(m_onIceDiagonal){
             movementAllowed = false;
-            jumpAllowed = false;
+            jumpAllowed = true;
             first = false;
         }
         else if(!m_onIce){

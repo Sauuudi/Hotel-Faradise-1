@@ -35,11 +35,13 @@ public class Kate1 : MonoBehaviour
     [SerializeField]
     private GameObject hangingOn = null;
 
+    private int jumpDirection;
     private void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         hj = gameObject.GetComponent<HingeJoint2D>();
         pulleySelected = new GameObject[MaxClavos];
+        jumpDirection= 0;
     }
 
     // Update is called once per frame
@@ -51,9 +53,10 @@ public class Kate1 : MonoBehaviour
     }
 
     void CheckKeyboardInputs()
-    {
+    {   
         if (Input.GetKey("a") || Input.GetKey("left"))
         {
+            jumpDirection = -1;
             if (attached)
             {
                 rb.AddRelativeForce(new Vector3(-1, 0, 0) * pushForce);
@@ -62,6 +65,7 @@ public class Kate1 : MonoBehaviour
 
         if (Input.GetKey("d") || Input.GetKey("right"))
         {
+            jumpDirection = 1;
             if (attached)
             {
                 rb.AddRelativeForce(new Vector3(1, 0, 0) * pushForce);
@@ -126,7 +130,7 @@ public class Kate1 : MonoBehaviour
                     theHangingPlatform.GetComponent<movePlatformDown>().modifyWeight(10.0f);
                     isHangingPlatform = false;
                 }
-                
+              rb.AddForce(new Vector2(jumpDirection,0) * 250f, ForceMode2D.Impulse);  
             }
         }
     }
@@ -384,6 +388,7 @@ bool checkSelected(GameObject clavo, bool toReset)
 
     void Detach()
     {
+        
         hj.connectedBody.gameObject.GetComponent<RopeSegment>().isPlayerAttached = false;
         attached = false;
         hj.enabled = false;

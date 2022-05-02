@@ -21,13 +21,13 @@ public class MovementConnor : MonoBehaviour
     [SerializeField] private LayerMask m_WhatIsIce; // A mask determining what is ground to the character
     [SerializeField] private Transform m_GroundCheck;	// A position marking where to check if the player is grounded.
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
-	private bool m_Grounded;   // Whether or not the player is grounded.
-    private bool m_onIce;
-    private bool m_onIceDiagonal;
-    private bool movementAllowed;
-    private bool jumpAllowed;
+	public bool m_Grounded;   // Whether or not the player is grounded.
+    public bool m_onIce;
+    public bool m_onIceDiagonal;
+    public bool movementAllowed;
+    public bool jumpAllowed;
     private bool aiming = false;    
-    private bool first;
+    public   bool first;
     [SerializeField] private float rotateGunsight = 0.0f;
     [SerializeField] private float lookingAtRight = 1.0f;
     private bool onLadder = false;
@@ -89,7 +89,7 @@ public class MovementConnor : MonoBehaviour
         }
         else if(m_onIceDiagonal){
             movementAllowed = false;
-            jumpAllowed = false;
+            jumpAllowed = true;
             first = false;
         }
         else if(!m_onIce){
@@ -190,7 +190,9 @@ public class MovementConnor : MonoBehaviour
 		m_Grounded = false;
 
         bool wasOnIce = m_onIce;
-		m_onIce = false;        
+		m_onIce = false; 
+        m_onIceDiagonal = false;
+       
 
         // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
 		// This can be done using layers instead but Sample Assets will not overwrite your project settings.

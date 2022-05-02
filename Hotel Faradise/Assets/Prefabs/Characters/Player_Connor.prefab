@@ -199,7 +199,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 6200000, guid: a72700ff38b5f8748855c0aa853dc9a5, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -291,6 +291,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   m_GroundCheck: {fileID: 52631999943173925}
+  m_Grounded: 0
+  m_onIce: 0
+  m_onIceDiagonal: 0
+  movementAllowed: 0
+  jumpAllowed: 0
+  first: 0
   rotateGunsight: 0
   lookingAtRight: 1
   OnLandEvent:
