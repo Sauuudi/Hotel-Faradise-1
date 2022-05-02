@@ -9,7 +9,7 @@ public class YarnInteractable : MonoBehaviour
     public string conversationStartNode;
     private DialogueRunner dialogueRunner;
     private bool isCurrentConversation;
-    private bool dialogueThrown = false;
+    public bool dialogueThrown = false;
     public GameObject activateAfterDialogue = null;
     public void Start() {
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
@@ -17,7 +17,10 @@ public class YarnInteractable : MonoBehaviour
     public void StartConversation() {
         //Time.timeScale = 0f;
         isCurrentConversation = true;
-        dialogueRunner.StartDialogue(conversationStartNode);
+        if (dialogueRunner.StartDialogue(conversationStartNode))
+        {
+            dialogueThrown = true;
+        }
     }
     private void EndConversation(){
     
