@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3765633349209256195}
   - component: {fileID: 3765633349209256317}
-  - component: {fileID: 3765633349209256316}
+  - component: {fileID: -8695772043926921593}
   m_Layer: 10
   m_Name: RampaHielo
   m_TagString: DiagonalGroundIce
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &3765633349209256316
+--- !u!60 &-8695772043926921593
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,7 +92,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 3765633349209256194}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a72700ff38b5f8748855c0aa853dc9a5, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -108,13 +108,15 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -25.654305, y: 26.113342}
-      - {x: -25.786333, y: 26.192053}
-      - {x: -26.623695, y: 26.442892}
-      - {x: -26.418396, y: 22.377987}
-      - {x: -22.870346, y: 18.7414}
+    - - {x: -19.46875, y: 20.46875}
+      - {x: -26.037931, y: 26.07268}
+      - {x: -26.502884, y: 26.557812}
+      - {x: -26.59375, y: 22.03125}
+      - {x: -23.78125, y: 19.46875}
       - {x: 9.21875, y: -13.21875}
-      - {x: 22.72279, y: -26.362593}
+      - {x: 14.84375, y: -18.78125}
+      - {x: 22.40625, y: -26.28125}
+      - {x: 22.78125, y: -26.59375}
       - {x: 26.59375, y: -26.59375}
-      - {x: 26.769135, y: -26.041937}
-      - {x: 16.853199, y: -16.242352}
+      - {x: 26.59375, y: -25.40625}
+      - {x: 16.34375, y: -15.15625}

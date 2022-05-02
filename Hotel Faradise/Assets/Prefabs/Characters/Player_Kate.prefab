@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 9026693958785034216}
   - component: {fileID: 9026693958785034217}
   - component: {fileID: 9026693958785034218}
+  - component: {fileID: 1537250004957812571}
   m_Layer: 11
   m_Name: Player_Kate
   m_TagString: Player
@@ -153,7 +154,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.065546036}
+  m_Offset: {x: 0, y: -0.03}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -164,7 +165,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 1.3446131}
+  m_Size: {x: 0.6, y: 0.94}
   m_EdgeRadius: 0
 --- !u!95 &9026693958785034199
 Animator:
@@ -197,12 +198,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 558b3e218bcd2954c9ec4264a3155a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weight: 0
   speed: 5
   jumpForce: 19
   gravityScale: 4
   fallingGravityScale: 7
-  iceSpeed: 20
+  friccionHielo: 0.02
+  timeSliding: 0.8
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 768
@@ -235,7 +236,9 @@ MonoBehaviour:
   attachedTo: {fileID: 0}
   MaxClavos: 2
   pulleySelected: []
-  activeClavos: []
+  activeClavos:
+  - {fileID: 0}
+  - {fileID: 0}
   RopePrefab: {fileID: 5524541571224824407, guid: f35614d58851392478addeeaabb5305e, type: 3}
   lianaLength: 5
   hangingOn: {fileID: 0}
@@ -263,3 +266,19 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 30
+--- !u!58 &1537250004957812571
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9026693958785034219}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.44}
+  serializedVersion: 2
+  m_Radius: 0.28
