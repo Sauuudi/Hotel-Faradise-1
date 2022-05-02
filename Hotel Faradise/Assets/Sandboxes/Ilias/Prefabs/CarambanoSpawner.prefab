@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7608967729629185670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.86, y: 1.82, z: -0.38697568}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7694, y: 0.7423, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f964c3895906147a34e9f4013b6bc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 2
+  spawnTime: 3
   carambanoPrefab: {fileID: 7105102821510460509, guid: f9384025f8795f8419d4f42c8847787e, type: 3}
 --- !u!212 &4207768229900122332
 SpriteRenderer:
