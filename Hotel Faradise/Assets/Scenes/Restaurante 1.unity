@@ -2790,7 +2790,7 @@ GameObject:
   - component: {fileID: 2122632785}
   - component: {fileID: 2122632787}
   - component: {fileID: 2122632786}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: "Trigger Monta\xF1ero"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
