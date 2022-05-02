@@ -49,17 +49,6 @@ public class YarnInteractable : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D col){
-       // if(Toca a Kate o connor){
-            if (interactable && !dialogueRunner.IsDialogueRunning) {
-                // then run this character's conversation
-                StartConversation();
-                DisableConversation();
-                dialogueThrown = true;
-        }
-       // }
-    }
-
     public void activateObjectAfterDialogue()
     {
         if(dialogueThrown && activateAfterDialogue != null)
