@@ -334,6 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationStartNode: Bartender
+  dialogueThrown: 0
   activateAfterDialogue: {fileID: 0}
 --- !u!61 &112538868
 BoxCollider2D:
@@ -1634,6 +1635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationStartNode: Pianista
+  dialogueThrown: 0
   activateAfterDialogue: {fileID: 0}
 --- !u!61 &598190154
 BoxCollider2D:
@@ -1904,6 +1906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationStartNode: "Monta\xF1ero"
+  dialogueThrown: 0
   activateAfterDialogue: {fileID: 2069880834}
 --- !u!61 &912409607
 BoxCollider2D:
@@ -2858,6 +2861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationStartNode: Cliente
+  dialogueThrown: 0
   activateAfterDialogue: {fileID: 0}
 --- !u!61 &1827175801
 BoxCollider2D:
@@ -3132,6 +3136,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 52631999959151520, guid: c783bc0a173a0ec46b25f38ef8962dbc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454342471278105370, guid: c783bc0a173a0ec46b25f38ef8962dbc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114058204467931827, guid: c783bc0a173a0ec46b25f38ef8962dbc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7570269508015230933, guid: c783bc0a173a0ec46b25f38ef8962dbc, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
