@@ -5,6 +5,7 @@ using UnityEngine;
 public class checkAreaDialogue : MonoBehaviour
 {
     public YarnInteractable dialogueToActivate;
+    public GameObject buttonA;
     public bool inK = false;
     public bool inC = false;
 
@@ -12,18 +13,33 @@ public class checkAreaDialogue : MonoBehaviour
     void Start()
     {
         dialogueToActivate.DisableConversation();
+        buttonA.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (inC && inK)
+        if (inC)
         {
             dialogueToActivate.EnableConversation();
+            buttonA.SetActive(true);
+            if(Input.GetKeyDown(KeyCode.Joystick2Button1) || Input.GetKeyDown("q"))
+            {
+                dialogueToActivate.StartConversation();
+            }
+        } else if (inK)
+        {
+            dialogueToActivate.EnableConversation();
+            buttonA.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.Joystick1Button1) || Input.GetKeyDown("m"))
+            {
+                dialogueToActivate.StartConversation();
+            }
         }
         else
         {
             dialogueToActivate.DisableConversation();
+            buttonA.SetActive(false);
         }
     }
 

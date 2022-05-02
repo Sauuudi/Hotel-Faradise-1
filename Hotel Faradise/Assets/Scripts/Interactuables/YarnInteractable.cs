@@ -14,7 +14,7 @@ public class YarnInteractable : MonoBehaviour
     public void Start() {
         dialogueRunner = FindObjectOfType<Yarn.Unity.DialogueRunner>();
     }
-    private void StartConversation() {
+    public void StartConversation() {
         //Time.timeScale = 0f;
         isCurrentConversation = true;
         dialogueRunner.StartDialogue(conversationStartNode);
