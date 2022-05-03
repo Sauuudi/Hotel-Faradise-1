@@ -243,7 +243,7 @@ public class Kate1 : MonoBehaviour
                     clavosSelected++;
                 }
             }
-        } else if (Input.GetKeyDown(KeyCode.Joystick1Button4))
+        } else if (Input.GetKeyDown(KeyCode.Joystick1Button4) || Input.GetKeyDown("t"))
         {
             int caso = 0;
             switch (clavosGenerated)

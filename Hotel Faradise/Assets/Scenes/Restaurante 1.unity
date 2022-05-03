@@ -1315,7 +1315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 489588400}
   - component: {fileID: 489588399}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: barandilla_restaurante
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1359,8 +1359,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1668140793
-  m_SortingLayer: 3
+  m_SortingLayerID: -1067831797
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d03577fed12cbc64c8ec7cc9bdb59160, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2013,11 +2013,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9026693958785034195, guid: cd8b939cd17a9d44fa0ef7b33247e3c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.98
+      value: -7.31
       objectReference: {fileID: 0}
     - target: {fileID: 9026693958785034195, guid: cd8b939cd17a9d44fa0ef7b33247e3c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.24
+      value: -3.16
       objectReference: {fileID: 0}
     - target: {fileID: 9026693958785034195, guid: cd8b939cd17a9d44fa0ef7b33247e3c1, type: 3}
       propertyPath: m_LocalPosition.z
