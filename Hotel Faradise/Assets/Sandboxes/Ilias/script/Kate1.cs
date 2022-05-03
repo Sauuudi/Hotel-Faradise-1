@@ -72,7 +72,7 @@ public class Kate1 : MonoBehaviour
             }
         }
 
-        if ((Input.GetKeyDown("r") || Input.GetKeyDown(KeyCode.Joystick1Button15)) && pulleySelected[0] != null)
+        if ((Input.GetKeyDown("r") || Input.GetKeyDown(KeyCode.Joystick1Button5)) && pulleySelected[0] != null)
         {
             GameObject clavo0 = pulleySelected[0];
             if(clavo0 != null)
